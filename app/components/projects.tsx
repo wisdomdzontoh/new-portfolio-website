@@ -25,20 +25,29 @@ const projects: Project[] = [
     title: "AI Chatbot SAAS Application",
     description:
       "A web application that allows users to create, train, and deploy custom chatbots with data-specific training and website integration for customer support.",
-    link: "https://ai-chatbot-saas.vercel.app",
-    github: "https://github.com/wisdomdzontoh/AI-chatbot-SAAS",
+    link: "https://chatwise-ai.vercel.app",
+    github: "https://github.com/wisdomdzontoh/AI-assistant-bot-frontend",
     technologies: ["Django REST Framework", "Next.js", "OpenAI API", "Tailwind CSS"],
-    image: "/assets/ai-chatbot.png",
+    image: "/assets/chatwise_ai.png",
     featured: true,
+  },
+  {
+    title: "I-Cast Voting Platform",
+    description:
+      "An end-to-end solution that that allows organizations, corporates, and individuals to create and manage voting events with real-time results and analytics.",
+    link: "#projects",
+    github: "https://github.com/wisdomdzontoh/I-CAST_Voting_Platform_frontend",
+    technologies: ["Django REST Framework", "Next.js", "OpenAI API", "Tailwind CSS"],
+    image: "/assets/i-cast.png",
   },
   {
     title: "Data Visualizer Dashboard",
     description:
       "A dashboard application that enables users to create visualizations from uploaded CSV/Excel files or database connections with sharing and collaboration features.",
     link: "#",
-    github: "https://github.com/wisdomdzontoh/data-visualizer",
+    github: "https://github.com/wisdomdzontoh/dataviz-frontend",
     technologies: ["Django REST Framework", "Next.js", "Chart.js", "shadcn/ui"],
-    image: "/assets/data-visualizer.png",
+    image: "/assets/data_viz.png",
     featured: true,
   },
   {
@@ -48,7 +57,7 @@ const projects: Project[] = [
     link: "#",
     github: "https://github.com/wisdomdzontoh/invoice-generator",
     technologies: ["Python", "sevDesk API", "Pandas", "FastAPI"],
-    image: "/assets/invoice-generator.png",
+    image: "/assets/student-mgt.jpg",
     featured: true,
   },
   {
@@ -58,7 +67,7 @@ const projects: Project[] = [
     link: "#",
     github: "https://github.com/wisdomdzontoh/campaign-automation",
     technologies: ["Python", "ChatGPT API", "Turso", "Pipedrive API"],
-    image: "/assets/campaign-automation.png",
+    image: "/assets/react-job-listing.png",
   },
   {
     title: "Web Scraping & Lead Generation",
@@ -67,14 +76,14 @@ const projects: Project[] = [
     link: "#",
     github: "https://github.com/wisdomdzontoh/web-scraping-lead-gen",
     technologies: ["Python", "Selenium", "ChatGPT API", "Pandas"],
-    image: "/assets/web-scraping.png",
+    image: "/assets/maternal-death.png",
   },
   {
     title: "Expense Tracker Application",
     description:
       "A responsive web application for tracking personal and business expenses with interactive visualizations and trend analysis.",
-    link: "#",
-    github: "https://github.com/wisdomdzontoh/expense-tracker",
+    link: "https://expenses-tracker-eosin-one.vercel.app",
+    github: "https://github.com/wisdomdzontoh/ExpensesTracker-Frontend",
     technologies: ["Django REST Framework", "Next.js", "Chart.js", "Tailwind CSS"],
     image: "/assets/expense-tracker.png",
   },
