@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ArrowDown, Github, Linkedin, Mail, Download } from "lucide-react"
+import { ArrowDown, Github, Linkedin, Mail, Download, ExternalLink } from "lucide-react"
 import { motion } from "framer-motion"
 import Typed from "typed.js"
 
@@ -15,7 +15,7 @@ export default function Hero() {
     setIsLoaded(true)
 
     const typed = new Typed(typedRef.current, {
-      strings: ["Software Engineer", "Health Informatician", "Data Specialist", "Problem Solver"],
+      strings: ["Full-Stack Developer", "Backend Specialist", "API Engineer", "Data Automation Expert"],
       typeSpeed: 50,
       backSpeed: 30,
       backDelay: 1500,
@@ -85,11 +85,11 @@ export default function Hero() {
               </h2>
 
               <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-                I build innovative software solutions with a focus on health information systems. Specializing in{" "}
-                <span className="text-primary font-medium">Django</span>,
-                <span className="text-primary font-medium"> React</span>, and
-                <span className="text-primary font-medium"> data analytics</span> to create impactful applications that
-                bridge technology and healthcare.
+                I build robust, scalable web applications with a focus on backend development, API integrations, and
+                data automation. Specialized in <span className="text-primary font-medium">Python</span>,
+                <span className="text-primary font-medium"> Django</span>, and
+                <span className="text-primary font-medium"> RESTful APIs</span> to create efficient, maintainable
+                solutions that solve real business problems.
               </p>
 
               <div className="flex flex-wrap gap-4 pt-4">
@@ -100,7 +100,7 @@ export default function Hero() {
                   </a>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="rounded-full">
-                  <a href="/assets/resume.pdf" download className="flex items-center gap-2">
+                  <a href="/assets/Wisdom_Dzontoh_CV.pdf" download className="flex items-center gap-2">
                     <span>Download CV</span>
                     <Download size={18} />
                   </a>
@@ -145,9 +145,20 @@ export default function Hero() {
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-card rounded-lg shadow-lg flex items-center justify-center p-2 border border-border/50">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">5+</div>
+                  <div className="text-3xl font-bold text-primary">3+</div>
                   <div className="text-xs text-muted-foreground">Years Experience</div>
                 </div>
+              </div>
+              <div className="absolute -top-4 -left-4 w-auto h-auto bg-card rounded-lg shadow-lg flex items-center justify-center p-3 border border-border/50">
+                <a
+                  href="https://github.com/wisdomdzontoh/AI-chatbot-SAAS"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm"
+                >
+                  <span>Latest Project</span>
+                  <ExternalLink size={14} className="text-primary" />
+                </a>
               </div>
             </div>
           </motion.div>
@@ -172,4 +183,3 @@ export default function Hero() {
     </section>
   )
 }
-

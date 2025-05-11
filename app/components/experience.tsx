@@ -18,69 +18,64 @@ type Experience = {
 
 const experiences: Experience[] = [
   {
+    role: "Software Engineer (Freelance)",
+    company: "CBAMESTIMATOR GmbH",
+    location: "Germany (Remote)",
+    period: "2024 - 2025",
+    description:
+      "Designed and implemented scalable backend solutions and data pipelines for a German tech company, focusing on process automation and data-driven applications.",
+    tags: ["Backend Development", "API Integration", "Automation"],
+    tasks: [
+      "Designed and deployed scalable backend solutions using Python, Django, and FastAPI.",
+      "Developed and maintained RESTful APIs for seamless integration with third-party services.",
+      "Created efficient data pipelines using PostgreSQL and MongoDB to improve business operations.",
+      "Automated lead generation, invoice management, and email campaigns, resulting in significant operational cost savings.",
+      "Integrated with ChatGPT API to enhance data analysis capabilities and improve lead scoring accuracy.",
+    ],
+  },
+  {
     role: "Health Information Officer",
     company: "Greater Accra Regional Health Directorate, Ghana Health Service",
     location: "Accra, Ghana",
-    period: "2020 - Present",
+    period: "2021 - 2024",
     description:
-      "Utilized DHIMS2 for comprehensive health data management, ensuring accuracy and efficiency in data analysis and interpretation.",
-    tags: ["Healthcare", "Data Management", "Analysis"],
+      "Managed large-scale health data systems and developed digital tools for data collection and analysis, facilitating data-driven decision-making in public health.",
+    tags: ["Data Management", "Healthcare", "Analytics"],
     tasks: [
-      "Trained healthcare professionals on effective data collection and analysis techniques.",
-      "Developed customized data collection tools using Kobo Collect, ODK, and Google Forms.",
-      "Conducted data analysis with statistical tools like Excel, SPSS, STATA, and EPI INFO.",
-      "Ensured effective health data management through regular supervisory visits.",
-      "Monitored and evaluated Key Performance Indicators (KPIs) at the district and facility level.",
+      "Managed large-scale health data systems using DHIMS2, ensuring data integrity and accessibility.",
+      "Developed digital tools for data collection using ODK, Kobo Collect, and Google Forms.",
+      "Conducted detailed data analysis using Excel, SPSS, and STATA to support evidence-based decision making.",
+      "Provided training on data analytics and visualization techniques to healthcare professionals.",
+      "Monitored and evaluated Key Performance Indicators (KPIs) at district and facility levels.",
     ],
   },
   {
-    role: "Field Research Officer",
-    company: "University of Ghana Business School - Department of Finance",
-    location: "Accra, Ghana",
-    period: "06/2024",
-    description:
-      "Engaged in pivotal research projects focusing on health system governance and the impacts of antimicrobial resistance.",
-    tags: ["Research", "Healthcare", "Data Collection"],
-    tasks: [
-      "Collaborated with pharmacies and over-the-counter (OTC) providers to gather insights on antimicrobial resistance.",
-      "Utilized REDCAP offline survey app for accurate data collection in diverse environments.",
-    ],
-  },
-  {
-    role: "HHFA Data Collector",
-    company: "World Health Organization (in collaboration with GHS & MOH)",
-    location: "Ghana",
-    period: "2022 - 2023",
-    description:
-      "Led data collection initiatives for the Harmonized Health Facility Assessment (HHFA) in Ghana, contributing to national health system evaluations.",
-    tags: ["WHO", "Healthcare Assessment", "Data Collection"],
-    tasks: [
-      "Assessed health system service availability and readiness across various facilities.",
-      "Worked closely with WHO to ensure the successful execution of health assessments.",
-      "Provided in-depth data analysis and interpretation to support evidence-based decision-making.",
-    ],
-  },
-  {
-    role: "Clinical Data Abstractor",
-    company: "AYA Collective (GHS)",
-    location: "Accra, Ghana",
-    period: "08/2022 - 09/2022",
-    description:
-      "Participated in the baseline evaluation of the Making Every Baby Count Initiative (MEBCI 2.0), focusing on maternal and child health data.",
-    tags: ["Clinical Data", "Maternal Health", "Child Health"],
-    tasks: ["Entered critical data from delivery, antenatal, and NICU registers at Ridge Hospital using Survey CTO."],
-  },
-  {
-    role: "Software Development Projects",
+    role: "Full-Stack Developer (Personal Projects)",
     company: "Various Projects",
-    period: "Ongoing",
-    description: "Developed innovative software solutions addressing various needs in health and e-commerce sectors.",
-    tags: ["Software Development", "Healthcare", "E-commerce"],
+    period: "2022 - Present",
+    description:
+      "Developed several full-stack applications focusing on AI integration, data visualization, and process automation.",
+    tags: ["Full-Stack", "AI Integration", "Data Visualization"],
     tasks: [
-      "Electronic Medical Records System: Addressed data management gaps in health facilities.",
-      "E-commerce Web App: Developed CRUD operations for both user and admin roles.",
-      "E-voting System: Enabled user voting and results monitoring with a dedicated admin panel.",
-      "Blockchain Voting Platform: Created a secure voting environment with real-time monitoring capabilities.",
+      "AI Chatbot SAAS: Developed a web application allowing users to create, train, and deploy custom chatbots with OpenAI integration.",
+      "Data Visualizer: Built a dashboard application enabling users to create visualizations from uploaded CSV/Excel files or database connections.",
+      "Expense Tracker: Created a responsive web application for tracking expenses with interactive charts and trend analysis.",
+      "Invoice Generator: Developed an automated system for invoice generation and management using the sevDesk API.",
+      "Campaign Automation: Built an end-to-end solution for lead campaign processes with CRM integration.",
+    ],
+  },
+  {
+    role: "Web Scraping Specialist",
+    company: "Freelance Projects",
+    period: "2023 - 2024",
+    description:
+      "Developed automated web scraping solutions for lead generation and data collection using Python and Selenium.",
+    tags: ["Web Scraping", "Automation", "Python"],
+    tasks: [
+      "Designed and implemented web scraping tools using Selenium and BeautifulSoup for automated data extraction.",
+      "Developed a BK_Tree algorithm for scoring leads based on defined metrics.",
+      "Integrated ChatGPT API to enhance lead scoring accuracy and data classification.",
+      "Created data processing pipelines to clean and structure scraped data for business use.",
     ],
   },
 ]
@@ -123,8 +118,8 @@ export default function Experience() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Professional Experience</h2>
           <div className="w-20 h-1 bg-primary rounded-full mb-6"></div>
           <p className="max-w-2xl text-muted-foreground text-lg">
-            A track record of impactful roles in healthcare, research, and software development that have shaped my
-            multidisciplinary expertise.
+            A track record of impactful roles in software development, data engineering, and healthcare informatics that
+            have shaped my technical expertise.
           </p>
         </div>
 
@@ -207,4 +202,3 @@ export default function Experience() {
     </section>
   )
 }
-

@@ -22,58 +22,61 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "Health Information Management System",
+    title: "AI Chatbot SAAS Application",
     description:
-      "A comprehensive system for managing health information and data analytics, designed to improve healthcare delivery.",
-    link: "#",
-    github: "https://github.com/wisdomdzontoh/DJANGO-ELECTRONIC-HOSPITAL-MANAGEMENT-SYSTEM",
-    technologies: ["Django", "React", "PostgreSQL", "Tailwind CSS"],
-    image: "/assets/med-rec-system.png",
+      "A web application that allows users to create, train, and deploy custom chatbots with data-specific training and website integration for customer support.",
+    link: "https://ai-chatbot-saas.vercel.app",
+    github: "https://github.com/wisdomdzontoh/AI-chatbot-SAAS",
+    technologies: ["Django REST Framework", "Next.js", "OpenAI API", "Tailwind CSS"],
+    image: "/assets/ai-chatbot.png",
     featured: true,
   },
   {
-    title: "AI-Based Medical Diagnosis System",
+    title: "Data Visualizer Dashboard",
     description:
-      "Developed a system that utilizes AI algorithms to assist in medical diagnosis, integrating with existing health records.",
+      "A dashboard application that enables users to create visualizations from uploaded CSV/Excel files or database connections with sharing and collaboration features.",
     link: "#",
-    technologies: ["Python", "TensorFlow", "Django REST Framework", "React"],
-    image: "/assets/AI-MED.jpg",
+    github: "https://github.com/wisdomdzontoh/data-visualizer",
+    technologies: ["Django REST Framework", "Next.js", "Chart.js", "shadcn/ui"],
+    image: "/assets/data-visualizer.png",
     featured: true,
   },
   {
-    title: "Online Voting Platform",
+    title: "Invoice Generator System",
     description:
-      "Created a secure online voting platform, allowing organizations to conduct polls and elections with ease and transparency.",
+      "An automated invoice generation system that integrates with the sevDesk API to streamline invoice creation, processing, and organization.",
     link: "#",
-    github: "https://github.com/wisdomdzontoh/online-voting-platform-frontend",
-    technologies: ["Django", "React", "WebSocket", "PostgreSQL"],
-    image: "/assets/online-voting.png",
-  },
-  {
-    title: "AI Travel Planner Mobile App",
-    description: "A mobile application that uses AI to help users plan their travel itineraries seamlessly.",
-    link: "#",
-    github: "https://github.com/wisdomdzontoh/AI-travel-planner-react_native-mobile-app",
-    technologies: ["React Native", "Node.js", "OpenAI API", "MongoDB"],
-    image: "/assets/AI-Travel-planner.png",
-  },
-  {
-    title: "Maternal and Perinatal Death Reporting System",
-    description:
-      "Developed a system for reporting and analyzing maternal and perinatal deaths, contributing to better health outcomes.",
-    link: "#",
-    github: "https://github.com/wisdomdzontoh/django_maternal_and_perinatal_reporting_system",
-    technologies: ["Django", "Tailwind CSS", "PostgreSQL", "Chart.js"],
-    image: "/assets/maternal-death.png",
+    github: "https://github.com/wisdomdzontoh/invoice-generator",
+    technologies: ["Python", "sevDesk API", "Pandas", "FastAPI"],
+    image: "/assets/invoice-generator.png",
     featured: true,
   },
   {
-    title: "Job Listing Web App",
-    description: "A web application for job listings, enabling users to search and apply for jobs effectively.",
+    title: "Campaign Automation Tool",
+    description:
+      "An end-to-end solution that automates lead campaign processes by cleaning data, integrating with ChatGPT for analysis, and connecting with CRM systems.",
     link: "#",
-    github: "https://github.com/wisdomdzontoh/react-job-listing-web-app",
-    technologies: ["React", "Tailwind CSS", "Firebase"],
-    image: "/assets/react-job-listing.png",
+    github: "https://github.com/wisdomdzontoh/campaign-automation",
+    technologies: ["Python", "ChatGPT API", "Turso", "Pipedrive API"],
+    image: "/assets/campaign-automation.png",
+  },
+  {
+    title: "Web Scraping & Lead Generation",
+    description:
+      "A sophisticated web scraping tool that extracts data from websites, scores leads using a BK_Tree algorithm, and enhances accuracy with AI integration.",
+    link: "#",
+    github: "https://github.com/wisdomdzontoh/web-scraping-lead-gen",
+    technologies: ["Python", "Selenium", "ChatGPT API", "Pandas"],
+    image: "/assets/web-scraping.png",
+  },
+  {
+    title: "Expense Tracker Application",
+    description:
+      "A responsive web application for tracking personal and business expenses with interactive visualizations and trend analysis.",
+    link: "#",
+    github: "https://github.com/wisdomdzontoh/expense-tracker",
+    technologies: ["Django REST Framework", "Next.js", "Chart.js", "Tailwind CSS"],
+    image: "/assets/expense-tracker.png",
   },
 ]
 
@@ -123,8 +126,8 @@ export default function Projects() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
           <div className="w-20 h-1 bg-primary rounded-full mb-6"></div>
           <p className="max-w-2xl text-muted-foreground text-lg">
-            A showcase of my technical expertise and problem-solving abilities through real-world applications and
-            innovative solutions.
+            A showcase of my technical expertise in backend development, API integrations, and data automation through
+            real-world applications and innovative solutions.
           </p>
         </div>
 
@@ -149,7 +152,7 @@ export default function Projects() {
                 <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-xl blur-sm group-hover:blur opacity-50 group-hover:opacity-100 transition duration-500"></div>
                 <div className="relative rounded-xl overflow-hidden border border-border/50 shadow-lg">
                   <Image
-                    src={project.image || "/placeholder.svg"}
+                    src={project.image || "/placeholder.svg?height=600&width=800"}
                     alt={project.title}
                     width={600}
                     height={400}
@@ -268,7 +271,7 @@ export default function Projects() {
               >
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src={project.image || "/placeholder.svg"}
+                    src={project.image || "/placeholder.svg?height=400&width=600"}
                     alt={project.title}
                     fill
                     className={cn(
@@ -340,4 +343,3 @@ export default function Projects() {
     </section>
   )
 }
-

@@ -33,42 +33,55 @@ const skillCategories = [
     icon: <Code2 className="text-primary" size={24} />,
     items: [
       { name: "Python", level: "Advanced", percentage: 90, icon: <Braces size={16} /> },
-      { name: "JavaScript", level: "Intermediate", percentage: 75, icon: <Braces size={16} /> },
+      { name: "JavaScript", level: "Intermediate", percentage: 80, icon: <Braces size={16} /> },
+      { name: "TypeScript", level: "Intermediate", percentage: 75, icon: <Braces size={16} /> },
+      { name: "Java", level: "Intermediate", percentage: 65, icon: <Braces size={16} /> },
       { name: "C++", level: "Intermediate", percentage: 70, icon: <Braces size={16} /> },
-      { name: "JAVA", level: "Intermediate", percentage: 65, icon: <Braces size={16} /> },
     ],
   },
   {
-    category: "Web Development",
-    icon: <Globe className="text-primary" size={24} />,
+    category: "Backend Development",
+    icon: <Server className="text-primary" size={24} />,
     items: [
       { name: "Django", level: "Advanced", percentage: 90, icon: <Server size={16} /> },
-      { name: "React", level: "Intermediate", percentage: 75, icon: <Monitor size={16} /> },
-      { name: "Next.js", level: "Intermediate", percentage: 70, icon: <Monitor size={16} /> },
-      { name: "Tailwind CSS", level: "Intermediate", percentage: 80, icon: <Palette size={16} /> },
+      { name: "Django REST Framework", level: "Advanced", percentage: 85, icon: <Server size={16} /> },
+      { name: "FastAPI", level: "Intermediate", percentage: 75, icon: <Server size={16} /> },
+      { name: "Node.js", level: "Intermediate", percentage: 65, icon: <Server size={16} /> },
+      { name: "API Design", level: "Advanced", percentage: 85, icon: <Server size={16} /> },
+    ],
+  },
+  {
+    category: "Frontend Development",
+    icon: <Globe className="text-primary" size={24} />,
+    items: [
+      { name: "HTML/CSS", level: "Advanced", percentage: 85, icon: <Monitor size={16} /> },
+      { name: "React", level: "Intermediate", percentage: 80, icon: <Monitor size={16} /> },
+      { name: "Next.js", level: "Intermediate", percentage: 75, icon: <Monitor size={16} /> },
+      { name: "Tailwind CSS", level: "Advanced", percentage: 85, icon: <Palette size={16} /> },
+      { name: "Bootstrap", level: "Intermediate", percentage: 80, icon: <Palette size={16} /> },
     ],
   },
   {
     category: "Database & DevOps",
     icon: <Database className="text-primary" size={24} />,
     items: [
-      { name: "PostgreSQL", level: "Intermediate", percentage: 75, icon: <Database size={16} /> },
-      { name: "MySQL", level: "Intermediate", percentage: 70, icon: <Database size={16} /> },
-      { name: "MongoDB", level: "Intermediate", percentage: 65, icon: <Database size={16} /> },
-      { name: "AWS", level: "Intermediate", percentage: 60, icon: <Cloud size={16} /> },
-      { name: "Git", level: "Intermediate", percentage: 80, icon: <GitBranch size={16} /> },
-      { name: "Docker", level: "Intermediate", percentage: 65, icon: <Layers size={16} /> },
+      { name: "MySQL", level: "Advanced", percentage: 85, icon: <Database size={16} /> },
+      { name: "PostgreSQL", level: "Intermediate", percentage: 80, icon: <Database size={16} /> },
+      { name: "MongoDB", level: "Intermediate", percentage: 70, icon: <Database size={16} /> },
+      { name: "Docker", level: "Intermediate", percentage: 70, icon: <Layers size={16} /> },
+      { name: "AWS", level: "Intermediate", percentage: 65, icon: <Cloud size={16} /> },
+      { name: "Git", level: "Advanced", percentage: 85, icon: <GitBranch size={16} /> },
     ],
   },
   {
-    category: "Data Science & Analytics",
-    icon: <BarChart className="text-primary" size={24} />,
+    category: "Data & AI",
+    icon: <Cpu className="text-primary" size={24} />,
     items: [
-      { name: "SPSS", level: "Advanced", percentage: 85, icon: <BarChart size={16} /> },
-      { name: "STATA", level: "Intermediate", percentage: 75, icon: <BarChart size={16} /> },
-      { name: "EPI INFO", level: "Advanced", percentage: 85, icon: <BarChart size={16} /> },
-      { name: "Data Visualization", level: "Intermediate", percentage: 80, icon: <BarChart size={16} /> },
-      { name: "Machine Learning", level: "Intermediate", percentage: 65, icon: <Cpu size={16} /> },
+      { name: "Data Analytics", level: "Advanced", percentage: 85, icon: <BarChart size={16} /> },
+      { name: "Pandas/NumPy", level: "Intermediate", percentage: 80, icon: <BarChart size={16} /> },
+      { name: "Web Scraping", level: "Advanced", percentage: 90, icon: <Globe size={16} /> },
+      { name: "Selenium", level: "Advanced", percentage: 85, icon: <Globe size={16} /> },
+      { name: "OpenAI API", level: "Intermediate", percentage: 80, icon: <Cpu size={16} /> },
     ],
   },
 ]
@@ -122,8 +135,8 @@ export default function Skills() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Technical Expertise</h2>
           <div className="w-20 h-1 bg-primary rounded-full mb-6"></div>
           <p className="max-w-2xl text-muted-foreground text-lg">
-            A diverse skill set combining software development, data analysis, and healthcare informatics to create
-            comprehensive solutions for complex problems.
+            A comprehensive toolkit of programming languages, frameworks, and technologies that enable me to build
+            robust, scalable, and efficient software solutions.
           </p>
         </div>
 
@@ -132,7 +145,7 @@ export default function Skills() {
           variants={containerVariants}
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {skillCategories.map((category, catIndex) => (
             <motion.div
@@ -175,4 +188,3 @@ export default function Skills() {
     </section>
   )
 }
-

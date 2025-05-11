@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Moon, Sun } from "lucide-react"
+import { Menu, X, Moon, Sun, Code, Download } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { motion, AnimatePresence } from "framer-motion"
 import { useTheme } from "next-themes"
@@ -64,7 +64,10 @@ export default function Header() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold relative group">
+          <Link href="/" className="text-xl font-bold relative group flex items-center">
+            <div className="w-8 h-8 rounded-md bg-primary/10 flex items-center justify-center mr-2">
+              <Code className="text-primary" size={18} />
+            </div>
             <span className="text-primary">W</span>
             <span>isdom</span>
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -84,13 +87,6 @@ export default function Header() {
                     )}
                   >
                     {item.name}
-                    {activeSection === item.href.substring(1) && (
-                      <motion.span
-                        layoutId="activeSection"
-                        className="absolute bottom-0 left-0 right-0 mx-auto w-1/2 h-0.5 bg-primary rounded-full"
-                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                      />
-                    )}
                   </Link>
                 </li>
               ))}
@@ -106,6 +102,13 @@ export default function Header() {
               aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
             >
               {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            </Button>
+
+            <Button variant="outline" size="sm" className="rounded-full hidden md:flex" asChild>
+              <a href="/assets/Wisdom_Dzontoh_CV.pdf" download className="flex items-center gap-1">
+                <Download className="h-4 w-4" />
+                <span>Resume</span>
+              </a>
             </Button>
 
             <Button variant="default" size="sm" className="rounded-full hidden md:flex" asChild>
@@ -175,7 +178,25 @@ export default function Header() {
                   closed: { opacity: 0, y: 20 },
                 }}
               >
-                <Button asChild className="mt-4 rounded-full">
+                <Button asChild variant="outline" className="mt-2 rounded-full">
+                  <Link
+                    href="/docs/Wisdom_Dzontoh_CV.pdf" target="_blank"
+                    download
+                    className="flex items-center gap-1"
+                    onClick={toggleMenu}
+                  >
+                    <Download className="h-4 w-4" />
+                    <span>Resume</span>
+                  </Link>
+                </Button>
+              </motion.li>
+              <motion.li
+                variants={{
+                  open: { opacity: 1, y: 0 },
+                  closed: { opacity: 0, y: 20 },
+                }}
+              >
+                <Button asChild className="mt-2 rounded-full">
                   <a href="#contact" onClick={toggleMenu}>
                     Let's Talk
                   </a>
@@ -188,4 +209,3 @@ export default function Header() {
     </header>
   )
 }
-

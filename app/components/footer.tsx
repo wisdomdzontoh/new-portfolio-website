@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Github, Heart, Linkedin, Mail, Phone, ArrowUp } from "lucide-react"
+import { Github, Heart, Linkedin, Mail, Phone, ArrowUp, Twitter } from "lucide-react"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
@@ -39,8 +39,8 @@ export default function Footer() {
               <span className="text-primary">W</span>isdom Dzontoh
             </Link>
             <p className="text-muted-foreground mb-6 max-w-md">
-              Software engineer and health informatician specializing in building innovative solutions that bridge
-              technology and healthcare. Passionate about creating impactful applications that improve lives.
+              Full-Stack Developer with 3+ years of experience specializing in backend development, API integrations,
+              and data analytics. Building robust, scalable solutions that bridge technology and healthcare.
             </p>
             <div className="flex space-x-4">
               <a
@@ -60,6 +60,15 @@ export default function Footer() {
                 className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110"
               >
                 <Linkedin size={20} />
+              </a>
+              <a
+                href="https://twitter.com/wisdomdzontoh"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter"
+                className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110"
+              >
+                <Twitter size={20} />
               </a>
               <a
                 href="mailto:wisdomdzontoh@gmail.com"
@@ -157,7 +166,7 @@ export default function Footer() {
 
             <div className="mt-6">
               <Button asChild variant="default" size="sm" className="rounded-full">
-                <a href="/assets/resume.pdf" download className="flex items-center gap-2">
+                <a href="/assets/Wisdom_Dzontoh_CV.pdf" download className="flex items-center gap-2">
                   Download CV
                 </a>
               </Button>
@@ -187,4 +196,3 @@ export default function Footer() {
     </footer>
   )
 }
-

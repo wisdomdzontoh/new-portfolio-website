@@ -17,33 +17,34 @@ type Testimonial = {
 
 const testimonials: Testimonial[] = [
   {
-    name: "Jocelyn Laryea",
-    title: "Software Engineer",
+    name: "Andreas Kahabka",
+    title: "CTO CBAM-Estimator",
     quote:
-      "Wisdom is incredibly dedicated and skilled in health information management and software development. His ability to bridge these two domains makes him a valuable asset to any team.",
+      "I've managed several developers, and Wisdom stands out for his technical excellence and professional approach. He communicates clearly, meets deadlines consistently, and always considers the business impact of his technical decisions.",
     image: "/placeholder.svg?height=100&width=100",
   },
   {
-    name: "Sally Obeng",
-    title: "Network Engineer",
+    name: "Jocelyn Laryea",
+    title: "Regional Health Information Officer",
     quote:
-      "Working with Wisdom has been a pleasure. He always delivers work of high quality, with great attention to detail and teamwork. His technical skills and healthcare knowledge are impressive.",
+      "Wisdom is an exceptional developer with a rare combination of technical expertise and domain knowledge. His ability to understand complex requirements and translate them into elegant solutions has been invaluable to our team.",
+    image: "/placeholder.svg?height=100&width=100",
+  },
+  {
+    name: "Nana Yaw Osei Poku",
+    title: "Medical Doctor",
+    quote:
+      "Working with Wisdom has been transformative for our projects. His technical skills are impressive, but what sets him apart is his ability to understand healthcare workflows and build systems that genuinely improve efficiency and patient care.",
     image: "/placeholder.svg?height=100&width=100",
   },
   {
     name: "Bright Obeng",
     title: "Data Protection Engineer",
     quote:
-      "Wisdom is a great professional with exceptional attention to detail and excellent performance. His innovative approach to solving healthcare challenges with technology is truly inspiring.",
+      "Wisdom's code quality and architecture decisions are exemplary. He consistently delivers robust, maintainable solutions and has a talent for simplifying complex problems. His work on our data pipeline automation saved countless hours of manual work.",
     image: "/placeholder.svg?height=100&width=100",
   },
-  {
-    name: "Emmanuel Asante",
-    title: "Project Manager",
-    quote:
-      "I've had the pleasure of working with Wisdom on several projects. His technical expertise combined with his understanding of healthcare systems makes him uniquely qualified to develop solutions that truly address industry needs.",
-    image: "/placeholder.svg?height=100&width=100",
-  },
+  
 ]
 
 export default function Testimonials() {
@@ -90,11 +91,11 @@ export default function Testimonials() {
           <div className="inline-block px-3 py-1 bg-primary/10 rounded-full text-primary text-sm font-medium mb-4">
             Testimonials
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">What People Say</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">What Colleagues Say</h2>
           <div className="w-20 h-1 bg-primary rounded-full mb-6"></div>
           <p className="max-w-2xl text-muted-foreground text-lg">
-            Feedback from colleagues and clients who have experienced working with me on various projects and
-            initiatives.
+            Feedback from professionals who have worked with me on various projects and can attest to my technical
+            expertise and collaborative approach.
           </p>
         </div>
 
@@ -173,7 +174,7 @@ export default function Testimonials() {
           variants={containerVariants}
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
-          className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="hidden md:grid md:grid-cols-2 lg:grid-cols-2 gap-6"
         >
           {testimonials.map((testimonial, index) => (
             <motion.div key={index} variants={itemVariants}>
@@ -209,4 +210,3 @@ export default function Testimonials() {
     </section>
   )
 }
-

@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Github, Linkedin, Mail, MapPin, Phone, Send, CheckCircle } from "lucide-react"
+import { Github, Linkedin, Mail, MapPin, Phone, Send, CheckCircle, Calendar } from "lucide-react"
 import { useState } from "react"
 import { motion } from "framer-motion"
 
@@ -27,21 +27,42 @@ export default function Contact() {
     setFormState((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setIsSubmitted(true)
-      setFormState({ name: "", email: "", subject: "", message: "" })
+    try {
+      const response = await fetch("https://formspree.io/f/xjkwewqn", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formState.name,
+          email: formState.email,
+          subject: formState.subject,
+          message: formState.message,
+        }),
+      })
 
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setIsSubmitted(false)
-      }, 5000)
-    }, 1500)
+      if (response.ok) {
+        setIsSubmitted(true)
+        setFormState({ name: "", email: "", subject: "", message: "" })
+
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setIsSubmitted(false)
+        }, 5000)
+      } else {
+        alert("There was a problem submitting your form. Please try again.")
+      }
+    } catch (error) {
+      console.error("Form submission error:", error)
+      alert("An unexpected error occurred. Please try again.")
+    }
+
+    setIsSubmitting(false)
   }
 
   const containerVariants = {
@@ -72,15 +93,16 @@ export default function Contact() {
       <div className="absolute bottom-0 right-0 w-1/4 h-1/4 bg-secondary/5 rounded-full filter blur-[100px]" />
 
       <div className="container relative z-10">
+        {/* Intro text */}
         <div className="flex flex-col items-center text-center mb-16">
           <div className="inline-block px-3 py-1 bg-primary/10 rounded-full text-primary text-sm font-medium mb-4">
             Contact Me
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Let's Work Together</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Let's Build Something Great</h2>
           <div className="w-20 h-1 bg-primary rounded-full mb-6"></div>
           <p className="max-w-2xl text-muted-foreground text-lg">
-            Have a project in mind or want to discuss potential opportunities? I'm always open to new challenges and
-            collaborations.
+            Looking for a skilled developer to bring your project to life? I'm available for freelance work, full-time
+            positions, and interesting collaborations.
           </p>
         </div>
 
@@ -91,14 +113,15 @@ export default function Contact() {
           animate={isVisible ? "visible" : "hidden"}
           className="grid md:grid-cols-2 gap-8"
         >
+          {/* Contact info */}
           <motion.div variants={itemVariants}>
             <Card className="bg-card border-border/50 shadow-lg overflow-hidden h-full">
               <CardHeader className="pb-4">
                 <CardTitle className="text-2xl text-primary">Contact Information</CardTitle>
-                <CardDescription>Feel free to reach out through any of these channels</CardDescription>
+                <CardDescription>Let's discuss how I can help with your next project</CardDescription>
               </CardHeader>
-
               <CardContent className="space-y-6">
+                {/* Email */}
                 <div className="flex items-start">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 shrink-0">
                     <Mail className="text-primary" size={20} />
@@ -114,6 +137,7 @@ export default function Contact() {
                   </div>
                 </div>
 
+                {/* Phone */}
                 <div className="flex items-start">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 shrink-0">
                     <Phone className="text-primary" size={20} />
@@ -126,6 +150,7 @@ export default function Contact() {
                   </div>
                 </div>
 
+                {/* Location */}
                 <div className="flex items-start">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 shrink-0">
                     <MapPin className="text-primary" size={20} />
@@ -136,6 +161,18 @@ export default function Contact() {
                   </div>
                 </div>
 
+                {/* Availability */}
+                <div className="flex items-start">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 shrink-0">
+                    <Calendar className="text-primary" size={20} />
+                  </div>
+                  <div>
+                    <h3 className="font-medium">Availability</h3>
+                    <p className="text-muted-foreground">Open to freelance and full-time opportunities</p>
+                  </div>
+                </div>
+
+                {/* Social Links */}
                 <div className="pt-6 border-t border-border">
                   <h3 className="font-medium mb-4">Connect with me</h3>
                   <div className="flex gap-4">
@@ -167,22 +204,25 @@ export default function Contact() {
                   </div>
                 </div>
 
+                {/* Tech pitch */}
                 <div className="bg-primary/5 rounded-xl p-4 border border-primary/10">
-                  <h3 className="font-medium text-primary mb-2">Availability</h3>
+                  <h3 className="font-medium text-primary mb-2">Looking for a Technical Partner?</h3>
                   <p className="text-muted-foreground text-sm">
-                    I'm currently available for freelance work and full-time positions. My typical response time is
-                    within 24 hours.
+                    I specialize in building robust backend systems, API integrations, and data-driven applications.
+                    Let's discuss how I can help bring your project to life with clean, maintainable code and scalable
+                    architecture.
                   </p>
                 </div>
               </CardContent>
             </Card>
           </motion.div>
 
+          {/* Contact form */}
           <motion.div variants={itemVariants}>
             <Card className="bg-card border-border/50 shadow-lg overflow-hidden h-full">
               <CardHeader className="pb-4">
                 <CardTitle className="text-2xl text-primary">Send a Message</CardTitle>
-                <CardDescription>I'll get back to you as soon as possible</CardDescription>
+                <CardDescription>I'll get back to you within 24 hours</CardDescription>
               </CardHeader>
 
               <CardContent>
@@ -251,7 +291,7 @@ export default function Contact() {
                         name="message"
                         value={formState.message}
                         onChange={handleChange}
-                        placeholder="Your message"
+                        placeholder="Tell me about your project or opportunity"
                         rows={5}
                         required
                         className="border-border/50 focus:border-primary/50"
@@ -279,4 +319,3 @@ export default function Contact() {
     </section>
   )
 }
-

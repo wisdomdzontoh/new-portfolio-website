@@ -1,7 +1,7 @@
 "use client"
 
 import { useScrollAnimation } from "@/app/hooks/use-scroll-animation"
-import { Code, Database, HeartPulse, Award, GraduationCap } from "lucide-react"
+import { Code, Server, Award, GraduationCap, Cpu } from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -41,11 +41,11 @@ export default function About() {
           <div className="inline-block px-3 py-1 bg-primary/10 rounded-full text-primary text-sm font-medium mb-4">
             About Me
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Bridging Healthcare & Technology</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Full-Stack Developer & Data Specialist</h2>
           <div className="w-20 h-1 bg-primary rounded-full mb-6"></div>
           <p className="max-w-2xl text-muted-foreground text-lg">
-            A passionate software engineer and health informatician dedicated to creating innovative solutions that
-            improve healthcare delivery and patient outcomes.
+            A passionate software engineer with expertise in backend development, API integrations, and data analytics,
+            dedicated to creating robust, scalable solutions that solve real-world problems.
           </p>
         </div>
 
@@ -74,8 +74,8 @@ export default function About() {
                   <Award className="text-primary" size={24} />
                 </div>
                 <div>
-                  <h3 className="font-semibold">Professional Excellence</h3>
-                  <p className="text-sm text-muted-foreground">Dedicated to quality and innovation</p>
+                  <h3 className="font-semibold">Technical Excellence</h3>
+                  <p className="text-sm text-muted-foreground">Clean code, robust architecture</p>
                 </div>
               </div>
             </div>
@@ -87,7 +87,7 @@ export default function About() {
                 </div>
                 <div>
                   <h3 className="font-semibold">Continuous Learner</h3>
-                  <p className="text-sm text-muted-foreground">Always expanding my knowledge</p>
+                  <p className="text-sm text-muted-foreground">Always mastering new technologies</p>
                 </div>
               </div>
             </div>
@@ -97,23 +97,23 @@ export default function About() {
             <h3 className="text-2xl font-bold text-primary">Who I Am</h3>
             <div className="space-y-4 text-muted-foreground">
               <p className="leading-relaxed">
-                I am a <span className="text-foreground font-medium">software engineer and health informatician</span>{" "}
-                with a passion for developing solutions that address real-world healthcare challenges. My unique blend
-                of technical expertise and healthcare domain knowledge allows me to create systems that are both
-                technically robust and clinically relevant.
+                I am a <span className="text-foreground font-medium">Full-Stack Developer</span> with 3+ years of
+                professional experience, specializing in backend development and API integrations. My expertise lies in
+                building robust, scalable web applications using modern frameworks and cloud technologies.
               </p>
               <p className="leading-relaxed">
-                With experience at the{" "}
-                <span className="text-foreground font-medium">Greater Accra Regional Health Directorate</span> and
-                collaborations with organizations like the{" "}
-                <span className="text-foreground font-medium">World Health Organization</span>, I've developed a deep
-                understanding of healthcare systems and the critical role technology plays in improving them.
+                With advanced proficiency in{" "}
+                <span className="text-foreground font-medium">Python, Django, and RESTful APIs</span>, I've successfully
+                developed and deployed numerous applications that solve complex business problems. My experience at{" "}
+                <span className="text-foreground font-medium">CBAMESTIMATOR GmbH</span> and the
+                <span className="text-foreground font-medium"> Greater Accra Regional Health Directorate</span> has
+                given me a unique perspective on creating solutions that enhance user experience and business
+                efficiency.
               </p>
               <p className="leading-relaxed">
-                I'm currently focused on building innovative applications that leverage{" "}
-                <span className="text-foreground font-medium">machine learning</span> and
-                <span className="text-foreground font-medium"> data analytics</span> to provide personalized healthcare
-                solutions and improve patient outcomes.
+                I'm passionate about <span className="text-foreground font-medium">data-driven applications</span> and
+                <span className="text-foreground font-medium"> process automation</span>, having developed systems that
+                significantly improve operational efficiency through intelligent data handling and API integrations.
               </p>
             </div>
 
@@ -143,12 +143,12 @@ export default function About() {
                 <Code className="text-primary" size={24} />
               </div>
               <h3 className="text-xl font-semibold group-hover:text-primary transition-colors duration-300">
-                Software Engineer
+                Backend Developer
               </h3>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              Experienced in building robust web applications and APIs using Django, React, and other modern
-              technologies. Focused on creating scalable, maintainable, and user-friendly solutions.
+              Specialized in building robust backend systems with Django, FastAPI, and RESTful APIs. Experienced in
+              database design, API integrations, and developing efficient data pipelines for scalable applications.
             </p>
           </motion.div>
 
@@ -158,15 +158,15 @@ export default function About() {
           >
             <div className="flex items-center mb-4">
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 group-hover:bg-primary/20 transition-colors duration-300">
-                <HeartPulse className="text-primary" size={24} />
+                <Server className="text-primary" size={24} />
               </div>
               <h3 className="text-xl font-semibold group-hover:text-primary transition-colors duration-300">
-                Health Informatician
+                Full-Stack Engineer
               </h3>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              Specialized in health information systems, data analytics, and improving healthcare delivery through
-              technology. Experienced with DHIMS2 and other healthcare data management platforms.
+              Experienced in developing end-to-end web applications using modern frameworks like Django, Next.js, and
+              React. Skilled in creating responsive UIs with Tailwind CSS and integrating them with backend services.
             </p>
           </motion.div>
 
@@ -176,15 +176,16 @@ export default function About() {
           >
             <div className="flex items-center mb-4">
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 group-hover:bg-primary/20 transition-colors duration-300">
-                <Database className="text-primary" size={24} />
+                <Cpu className="text-primary" size={24} />
               </div>
               <h3 className="text-xl font-semibold group-hover:text-primary transition-colors duration-300">
-                Data Specialist
+                Data & AI Specialist
               </h3>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              Skilled in data collection, analysis, and visualization using tools like SPSS, STATA, and EPI INFO.
-              Experienced in developing custom data collection tools with Kobo Collect, ODK, and Google Forms.
+              Proficient in data analytics, automation, and AI integrations. Experienced in working with OpenAI APIs,
+              web scraping, and building data-driven applications that deliver actionable insights and automate
+              processes.
             </p>
           </motion.div>
         </motion.div>
@@ -192,4 +193,3 @@ export default function About() {
     </section>
   )
 }
-
