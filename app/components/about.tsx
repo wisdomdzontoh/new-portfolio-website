@@ -59,7 +59,7 @@ export default function About() {
           <motion.div variants={itemVariants} className="relative">
             <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-xl">
               <Image
-                src="/assets/coder.jpg"
+                src="/assets/my_passport_photo.jpg"
                 alt="Wisdom Dzontoh"
                 width={600}
                 height={700}

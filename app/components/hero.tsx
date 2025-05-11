@@ -141,7 +141,7 @@ export default function Hero() {
             <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/30 to-secondary/30 opacity-30 blur-xl animate-pulse"></div>
               <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-primary/10 shadow-2xl">
-                <Image src="/assets/coder.jpg" alt="Wisdom Dzontoh" fill className="object-cover" priority />
+                <Image src="/assets/currentpic.jpg" alt="Wisdom Dzontoh" fill className="object-cover" priority />
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-card rounded-lg shadow-lg flex items-center justify-center p-2 border border-border/50">
                 <div className="text-center">
