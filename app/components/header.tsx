@@ -105,11 +105,17 @@ export default function Header() {
             </Button>
 
             <Button variant="outline" size="sm" className="rounded-full hidden md:flex" asChild>
-              <a href="/assets/Wisdom_Dzontoh_CV.pdf" download className="flex items-center gap-1">
-                <Download className="h-4 w-4" />
-                <span>Resume</span>
-              </a>
-            </Button>
+            <a
+              href="https://drive.google.com/uc?export=download&id=1watZAeRuLBZeCcoAMfuefS_wVUV7I9vt"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1"
+            >
+              <Download className="h-4 w-4" />
+              <span>Resume</span>
+            </a>
+          </Button>
+
 
             <Button variant="default" size="sm" className="rounded-full hidden md:flex" asChild>
               <a href="#contact">Let's Talk</a>
@@ -178,17 +184,18 @@ export default function Header() {
                   closed: { opacity: 0, y: 20 },
                 }}
               >
-                <Button asChild variant="outline" className="mt-2 rounded-full">
-                  <Link
-                    href="/docs/Wisdom_Dzontoh_CV.pdf" target="_blank"
-                    download
-                    className="flex items-center gap-1"
-                    onClick={toggleMenu}
-                  >
-                    <Download className="h-4 w-4" />
-                    <span>Resume</span>
-                  </Link>
-                </Button>
+                <Button variant="outline" size="sm" className="rounded-full hidden md:flex" asChild>
+                <a
+                  href="https://drive.google.com/uc?export=download&id=1watZAeRuLBZeCcoAMfuefS_wVUV7I9vt"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1"
+                >
+                  <Download className="h-4 w-4" />
+                  <span>Resume</span>
+                </a>
+              </Button>
+
               </motion.li>
               <motion.li
                 variants={{

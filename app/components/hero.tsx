@@ -100,11 +100,17 @@ export default function Hero() {
                   </a>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="rounded-full">
-                  <a href="/assets/Wisdom_Dzontoh_CV.pdf" download className="flex items-center gap-2">
+                  <a
+                    href="https://drive.google.com/uc?export=download&id=1watZAeRuLBZeCcoAMfuefS_wVUV7I9vt"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
                     <span>Download CV</span>
                     <Download size={18} />
                   </a>
                 </Button>
+
               </div>
 
               <div className="flex gap-6 pt-4">
