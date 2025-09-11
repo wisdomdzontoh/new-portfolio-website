@@ -144,8 +144,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-medium">Phone</h3>
-                    <a href="tel:+233558749735" className="text-muted-foreground hover:text-primary transition-colors">
-                      +233 558 749 735
+                    <a href="tel:+2330558749735" className="text-muted-foreground hover:text-primary transition-colors">
+                      (+233) 0558749735
                     </a>
                   </div>
                 </div>
@@ -157,7 +157,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-medium">Location</h3>
-                    <p className="text-muted-foreground">Accra, Ghana</p>
+                    <p className="text-muted-foreground">GA-258-6269, Nkwanta St. Accra-Ghana</p>
                   </div>
                 </div>
 

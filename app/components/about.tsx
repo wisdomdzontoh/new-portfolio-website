@@ -41,11 +41,10 @@ export default function About() {
           <div className="inline-block px-3 py-1 bg-primary/10 rounded-full text-primary text-sm font-medium mb-4">
             About Me
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Full-Stack Developer & Data Specialist</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Data Analytics Engineer & Software Engineer</h2>
           <div className="w-20 h-1 bg-primary rounded-full mb-6"></div>
           <p className="max-w-2xl text-muted-foreground text-lg">
-            A passionate software engineer with expertise in backend development, API integrations, and data analytics,
-            dedicated to creating robust, scalable solutions that solve real-world problems.
+            Strategic Software Engineer skilled in application development, testing and optimization. Excels at coordinating ground-up planning, programming, and implementation for core modules. Maintains strong object-oriented and software architecture fundamentals.
           </p>
         </div>
 
@@ -94,26 +93,22 @@ export default function About() {
           </motion.div>
 
           <motion.div variants={itemVariants} className="space-y-6">
-            <h3 className="text-2xl font-bold text-primary">Who I Am</h3>
+            <h3 className="text-2xl font-bold text-primary">My Tech Stack</h3>
             <div className="space-y-4 text-muted-foreground">
               <p className="leading-relaxed">
-                I am a <span className="text-foreground font-medium">Full-Stack Developer</span> with 3+ years of
-                professional experience, specializing in backend development and API integrations. My expertise lies in
-                building robust, scalable web applications using modern frameworks and cloud technologies.
+                <span className="text-foreground font-medium">LLM Frameworks:</span> OpenAI, LangChain
               </p>
               <p className="leading-relaxed">
-                With advanced proficiency in{" "}
-                <span className="text-foreground font-medium">Python, Django, and RESTful APIs</span>, I've successfully
-                developed and deployed numerous applications that solve complex business problems. My experience at{" "}
-                <span className="text-foreground font-medium">CBAMESTIMATOR GmbH</span> and the
-                <span className="text-foreground font-medium"> Greater Accra Regional Health Directorate</span> has
-                given me a unique perspective on creating solutions that enhance user experience and business
-                efficiency.
+                <span className="text-foreground font-medium">Programming Languages:</span> Python (Advanced), TypeScript, Java, C++
               </p>
               <p className="leading-relaxed">
-                I'm passionate about <span className="text-foreground font-medium">data-driven applications</span> and
-                <span className="text-foreground font-medium"> process automation</span>, having developed systems that
-                significantly improve operational efficiency through intelligent data handling and API integrations.
+                <span className="text-foreground font-medium">Backend Frameworks:</span> FastAPI, Django (DRF), Laravel, Node.js
+              </p>
+              <p className="leading-relaxed">
+                <span className="text-foreground font-medium">Data & Infrastructure:</span> PostgreSQL, Redis, AWS, Kubernetes, Docker
+              </p>
+              <p className="leading-relaxed">
+                <span className="text-foreground font-medium">Frontend:</span> Next.js, JavaScript, Tailwind CSS, shadcn/ui
               </p>
             </div>
 

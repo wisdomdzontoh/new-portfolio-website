@@ -58,14 +58,16 @@ export default function PortfolioIntro() {
             <h2 className="text-3xl md:text-4xl font-bold">Let Me Introduce Myself</h2>
 
             <p className="text-muted-foreground leading-relaxed">
-              I'm a Full-Stack Developer with a passion for creating robust, scalable applications that solve
-              real-world problems. With expertise in backend development, API integrations, and data automation,
-              I bring a unique blend of technical skills and business understanding to every project.
+              I'm a Data Analytics Engineer and Software Engineer with a passion for creating intelligent, 
+              data-driven applications that solve complex business problems. With expertise in LLM frameworks, 
+              backend development, and process automation, I bring a unique blend of technical skills and 
+              analytical thinking to every project.
             </p>
 
             <p className="text-muted-foreground leading-relaxed">
-              Watch my introduction video to learn more about my approach to software development, or download
-              my comprehensive portfolio PDF for a detailed overview of my projects and skills.
+              My experience spans from healthcare data management to AI-powered automation systems, 
+              demonstrating versatility in both technical implementation and business process optimization. 
+              Watch my introduction video or download my comprehensive portfolio PDF for a detailed overview.
             </p>
 
             {/* 📥 Download Button */}

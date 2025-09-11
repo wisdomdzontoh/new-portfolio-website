@@ -88,7 +88,8 @@ export default function Experience() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
       },
     },
   }
@@ -99,7 +100,8 @@ export default function Experience() {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.3,
+        ease: "easeOut",
       },
     },
   }
@@ -126,8 +128,8 @@ export default function Experience() {
         <motion.div
           ref={ref}
           variants={containerVariants}
-          initial="hidden"
-          animate={isVisible ? "visible" : "hidden"}
+          initial="visible"
+          animate="visible"
           className="relative"
         >
           {/* Timeline line */}
@@ -137,6 +139,8 @@ export default function Experience() {
             <motion.div
               key={index}
               variants={itemVariants}
+              initial="visible"
+              animate="visible"
               className={cn(
                 "relative mb-12 md:mb-24 flex flex-col md:flex-row",
                 index % 2 === 0 ? "md:flex-row-reverse" : "",

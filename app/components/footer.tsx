@@ -164,13 +164,7 @@ export default function Footer() {
               </li>
             </ul>
 
-            <div className="mt-6">
-              <Button asChild variant="default" size="sm" className="rounded-full">
-                <a href="/assets/Wisdom_Dzontoh_CV.pdf" download className="flex items-center gap-2">
-                  Download CV
-                </a>
-              </Button>
-            </div>
+            
           </div>
         </div>
 

@@ -35,6 +35,161 @@ type Project = {
 
 const projects: Project[] = [
   {
+    id: "invoice-generator",
+    title: "Invoice Generator System",
+    description:
+      "An automated invoice generation system that integrates with the sevDesk API to streamline invoice creation, processing, and organization.",
+    longDescription: `This automated invoice generation system revolutionizes the way businesses handle their billing processes. The system seamlessly integrates with the sevDesk API to automate invoice creation, processing, and organization.
+    
+    The application processes and transforms data extracted from Excel/CSV files into API payloads, ensuring accurate and consistent invoice generation. It implements a robust solution to download and organize invoices based on date and time, making financial record-keeping efficient and organized.
+    
+    Built with Python and leveraging the sevDesk API, the system handles complex data transformations and provides a streamlined workflow for businesses to manage their invoicing processes. The solution significantly reduces manual work and minimizes errors in invoice generation.`,
+    link: "#",
+    github: "https://github.com/wisdomdzontoh/invoice-generator",
+    technologies: ["Python", "sevDesk API", "Pandas", "FastAPI", "CSV & XLSX handling"],
+    image: "/assets/student-mgt.jpg",
+    screenshots: ["/assets/student-mgt.jpg"],
+    features: [
+      "Automated invoice generation using sevDesk API",
+      "Data processing from Excel/CSV files",
+      "Invoice organization by date and time",
+      "Robust error handling and validation",
+      "Streamlined workflow for invoice management",
+    ],
+    challenges: [
+      {
+        description: "Handling complex data transformations from various file formats.",
+        solution:
+          "Implemented robust data parsing and validation using Pandas to ensure data integrity and handle different file formats consistently.",
+      },
+      {
+        description: "Integrating with external API while maintaining data security.",
+        solution:
+          "Developed secure API integration patterns with proper authentication and error handling to ensure reliable communication with sevDesk API.",
+      },
+    ],
+    featured: true,
+    role: "Software Engineer",
+    duration: "2 months",
+  },
+  {
+    id: "campaign-automation",
+    title: "Campaign Automation Tool",
+    description:
+      "An end-to-end solution that automates lead campaign processes by cleaning data, integrating with ChatGPT for analysis, and connecting with CRM systems.",
+    longDescription: `This comprehensive campaign automation tool streamlines lead generation and management processes for businesses. The system automates data cleaning and integration by reading data from CSV/XLSX files and storing it in a Turso database.
+    
+    The application utilizes the ChatGPT API to analyze and assign data attributes, enhancing lead scoring accuracy. It seamlessly integrates with Pipedrive (CRM) and Lemlist for coordinated lead campaigns, creating a unified workflow for marketing teams.
+    
+    Built with Python and leveraging modern APIs, the system provides intelligent data processing, automated lead scoring, and seamless CRM integration. This solution significantly improves lead quality and campaign effectiveness while reducing manual work.`,
+    link: "#",
+    github: "https://github.com/wisdomdzontoh/campaign-automation",
+    technologies: ["Python", "ChatGPT API", "Turso", "Pipedrive API", "Lemlist"],
+    image: "/assets/react-job-listing.png",
+    screenshots: ["/assets/react-job-listing.png"],
+    features: [
+      "Automated data cleaning and integration",
+      "ChatGPT API integration for lead analysis",
+      "Turso database for efficient data storage",
+      "Pipedrive CRM integration",
+      "Lemlist campaign coordination",
+      "Intelligent lead scoring system",
+    ],
+    challenges: [
+      {
+        description: "Integrating multiple third-party APIs while maintaining system reliability.",
+        solution:
+          "Implemented robust error handling and retry mechanisms with proper API rate limiting to ensure reliable integration with all external services.",
+      },
+      {
+        description: "Ensuring data consistency across different platforms.",
+        solution:
+          "Developed a unified data model and synchronization system that maintains data integrity across Turso database, Pipedrive, and Lemlist.",
+      },
+    ],
+    featured: true,
+    role: "Software Engineer",
+    duration: "3 months",
+  },
+  {
+    id: "web-scraping-lead-gen",
+    title: "Web Scraping & Lead Generation",
+    description:
+      "A sophisticated web scraping tool that extracts data from websites, scores leads using a BK_Tree algorithm, and enhances accuracy with AI integration.",
+    longDescription: `This advanced web scraping and lead generation system combines traditional web scraping techniques with modern AI capabilities to deliver high-quality leads for businesses. The system automates extraction of web data using Selenium, ensuring reliable data collection from various websites.
+    
+    The application employs a BK_Tree algorithm for scoring leads based on defined metrics, providing intelligent lead qualification. It integrates ChatGPT API to enhance lead scoring accuracy, making the system more effective at identifying high-value prospects.
+    
+    Built with Python and leveraging Selenium for web automation, the system provides comprehensive lead generation capabilities with intelligent scoring and AI-enhanced accuracy. This solution significantly improves lead quality and reduces manual research time.`,
+    link: "#",
+    github: "https://github.com/wisdomdzontoh/web-scraping-lead-gen",
+    technologies: ["Python", "Selenium", "ChatGPT API", "Pandas", "BK_Tree Algorithm"],
+    image: "/assets/maternal-death.png",
+    screenshots: ["/assets/maternal-death.png"],
+    features: [
+      "Automated web data extraction using Selenium",
+      "BK_Tree algorithm for intelligent lead scoring",
+      "ChatGPT API integration for enhanced accuracy",
+      "Comprehensive data processing and analysis",
+      "Configurable scraping parameters",
+      "Lead quality assessment and ranking",
+    ],
+    challenges: [
+      {
+        description: "Handling dynamic web content and anti-scraping measures.",
+        solution:
+          "Implemented advanced Selenium techniques with proper wait strategies and user-agent rotation to handle dynamic content and avoid detection.",
+      },
+      {
+        description: "Optimizing lead scoring algorithm for accuracy and performance.",
+        solution:
+          "Developed a hybrid scoring system combining BK_Tree algorithm with AI analysis to provide both fast processing and high accuracy in lead qualification.",
+      },
+    ],
+    featured: true,
+    role: "Software Engineer",
+    duration: "2 months",
+  },
+  {
+    id: "health-chatbot",
+    title: "Health Information Chatbot",
+    description:
+      "Built an end-to-end chatbot that helps professionals answer questions in relation to Standard operating procedures, documentations etc.",
+    longDescription: `This comprehensive health information chatbot system is designed to assist healthcare professionals by providing instant access to standard operating procedures, documentation, and medical guidelines. The system leverages advanced AI capabilities to deliver accurate and contextually relevant information.
+    
+    Built with FastAPI and Langchain, the application provides a robust backend infrastructure for handling complex medical queries. It integrates with OpenAI API and Ollama for enhanced AI capabilities, while the frontend is developed using Next.js and shadcn UI library for an intuitive user experience.
+    
+    The system is specifically designed for healthcare environments where quick access to accurate information is critical. It helps reduce response time for medical queries and ensures consistent information delivery across healthcare teams.`,
+    link: "#",
+    github: "#",
+    technologies: ["FastAPI", "Langchain", "OpenAI API", "Ollama", "Next.js", "shadcn UI"],
+    image: "/assets/med-rec-system.png",
+    screenshots: ["/assets/med-rec-system.png"],
+    features: [
+      "AI-powered health information retrieval",
+      "Integration with medical documentation systems",
+      "Real-time query processing",
+      "Secure healthcare data handling",
+      "User-friendly interface for healthcare professionals",
+      "Comprehensive medical knowledge base",
+    ],
+    challenges: [
+      {
+        description: "Ensuring accuracy and reliability of medical information.",
+        solution:
+          "Implemented rigorous validation systems and medical knowledge verification processes to ensure all provided information meets healthcare standards.",
+      },
+      {
+        description: "Handling complex medical queries with appropriate context.",
+        solution:
+          "Developed advanced prompt engineering techniques and context-aware response generation to provide accurate and relevant medical information.",
+      },
+    ],
+    featured: true,
+    role: "Full-Stack Developer",
+    duration: "4 months",
+  },
+  {
     id: "chatbot-saas",
     title: "AI Chatbot SAAS Application",
     description:
@@ -77,7 +232,7 @@ const projects: Project[] = [
           "Implemented a tiered caching system with Redis that stores frequent queries and responses, reducing API calls by approximately 40% while maintaining response quality.",
       },
     ],
-    featured: true,
+    featured: false,
     role: "Full-Stack Developer",
     duration: "3 months",
   },
@@ -429,10 +584,10 @@ export default function ProjectsEnhanced() {
             <motion.div key={project.id} variants={itemVariants}>
               <Card
                 className={cn(
-                  "overflow-hidden transition-all duration-300 border-border/50 bg-card h-full flex flex-col",
+                  "overflow-hidden transition-all duration-500 border-border/50 bg-card h-full flex flex-col group",
                   hoveredIndex === index
-                    ? "transform scale-[1.02] shadow-xl border-primary/20"
-                    : "transform scale-100 shadow-md",
+                    ? "transform scale-[1.03] shadow-2xl border-primary/30 bg-gradient-to-br from-card to-card/95"
+                    : "transform scale-100 shadow-md hover:shadow-xl hover:border-primary/20 hover:bg-gradient-to-br hover:from-card hover:to-card/98",
                 )}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
@@ -443,8 +598,8 @@ export default function ProjectsEnhanced() {
                     alt={project.title}
                     fill
                     className={cn(
-                      "object-cover transition-transform duration-500",
-                      hoveredIndex === index ? "scale-110" : "scale-100",
+                      "object-cover transition-all duration-500",
+                      hoveredIndex === index ? "scale-110 brightness-110" : "scale-100",
                     )}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />

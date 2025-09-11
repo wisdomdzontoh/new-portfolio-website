@@ -15,7 +15,7 @@ export default function Hero() {
     setIsLoaded(true)
 
     const typed = new Typed(typedRef.current, {
-      strings: ["Full-Stack Developer", "Backend Specialist", "API Engineer", "Data Automation Expert"],
+      strings: ["Data Analytics Engineer", "Software Engineer", "System Manager", "Backend Specialist", "API Engineer", "Data Automation Expert"],
       typeSpeed: 50,
       backSpeed: 30,
       backDelay: 1500,
@@ -51,11 +51,12 @@ export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       {/* Background elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background/90 z-0">
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/98 to-background/95 z-0">
         <div className="absolute top-0 left-0 w-full h-full bg-grid-pattern opacity-5"></div>
-        <div className="absolute top-20 right-10 w-96 h-96 bg-primary/10 rounded-full filter blur-[100px] opacity-30" />
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-secondary/10 rounded-full filter blur-[100px] opacity-30" />
-        <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-accent/10 rounded-full filter blur-[80px] opacity-20" />
+        <div className="absolute top-20 right-10 w-96 h-96 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full filter blur-[100px] opacity-40" />
+        <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-tr from-secondary/20 to-secondary/5 rounded-full filter blur-[100px] opacity-40" />
+        <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-gradient-to-br from-accent/15 to-accent/5 rounded-full filter blur-[80px] opacity-30" />
+        <div className="absolute top-1/2 right-1/3 w-48 h-48 bg-gradient-to-bl from-primary/10 to-transparent rounded-full filter blur-[60px] opacity-25" />
       </div>
 
       <div className="container mx-auto px-4 py-16 relative z-10">
@@ -85,11 +86,7 @@ export default function Hero() {
               </h2>
 
               <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-                I build robust, scalable web applications with a focus on backend development, API integrations, and
-                data automation. Specialized in <span className="text-primary font-medium">Python</span>,
-                <span className="text-primary font-medium"> Django</span>, and
-                <span className="text-primary font-medium"> RESTful APIs</span> to create efficient, maintainable
-                solutions that solve real business problems.
+                Strategic Software Engineer skilled in application development, testing and optimization. I excel at coordinating ground-up planning, programming, and implementation for core modules. My tech stack includes <span className="text-primary font-medium">Python</span>, <span className="text-primary font-medium">Django/FastAPI</span>, <span className="text-primary font-medium">LLM Frameworks</span>, and <span className="text-primary font-medium">Data Analytics</span> to create efficient, maintainable solutions.
               </p>
 
               <div className="flex flex-wrap gap-4 pt-4">
@@ -113,32 +110,40 @@ export default function Hero() {
 
               </div>
 
-              <div className="flex gap-6 pt-4">
-                <a
-                  href="https://github.com/wisdomdzontoh"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-all transform hover:scale-110 duration-300"
-                  aria-label="GitHub"
-                >
-                  <Github size={24} />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/wisdom-dzontoh-563430195"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-all transform hover:scale-110 duration-300"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin size={24} />
-                </a>
-                <a
-                  href="mailto:wisdomdzontoh@gmail.com"
-                  className="text-muted-foreground hover:text-primary transition-all transform hover:scale-110 duration-300"
-                  aria-label="Email"
-                >
-                  <Mail size={24} />
-                </a>
+              <div className="space-y-4 pt-4">
+                <div className="flex gap-6">
+                  <a
+                    href="https://github.com/wisdomdzontoh"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-all transform hover:scale-110 duration-300"
+                    aria-label="GitHub"
+                  >
+                    <Github size={24} />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/wisdom-dzontoh-563430195"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-all transform hover:scale-110 duration-300"
+                    aria-label="LinkedIn"
+                  >
+                    <Linkedin size={24} />
+                  </a>
+                  <a
+                    href="mailto:wisdomdzontoh@gmail.com"
+                    className="text-muted-foreground hover:text-primary transition-all transform hover:scale-110 duration-300"
+                    aria-label="Email"
+                  >
+                    <Mail size={24} />
+                  </a>
+                </div>
+                
+                <div className="text-sm text-muted-foreground space-y-1">
+                  <p>📍 GA-258-6269, Nkwanta St. Accra-Ghana</p>
+                  <p>📞 (+233) 0558749735</p>
+                  <p>✉️ wisdomdzontoh@gmail.com</p>
+                </div>
               </div>
             </div>
           </motion.div>
