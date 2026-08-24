@@ -9,9 +9,9 @@ import Footer from "@/app/components/footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Wisdom Dzontoh - Software Engineer & Health Informatician",
+  title: "Wisdom Dzontoh - Software Engineer",
   description:
-    "Portfolio of Wisdom Dzontoh, a software engineer and health informatician specializing in Django, React, and health information systems.",
+    "Portfolio of Wisdom Dzontoh, a software engineer specializing in Django, FastAPI, Next.js, and AI-powered backend systems.",
 }
 
 export default function RootLayout({

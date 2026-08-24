@@ -35,345 +35,295 @@ type Project = {
 
 const projects: Project[] = [
   {
-    id: "invoice-generator",
-    title: "Invoice Generator System",
+    id: "emergency-alert-response-system",
+    title: "Emergency IoT Alert & Response System",
     description:
-      "An automated invoice generation system that integrates with the sevDesk API to streamline invoice creation, processing, and organization.",
-    longDescription: `This automated invoice generation system revolutionizes the way businesses handle their billing processes. The system seamlessly integrates with the sevDesk API to automate invoice creation, processing, and organization.
-    
-    The application processes and transforms data extracted from Excel/CSV files into API payloads, ensuring accurate and consistent invoice generation. It implements a robust solution to download and organize invoices based on date and time, making financial record-keeping efficient and organized.
-    
-    Built with Python and leveraging the sevDesk API, the system handles complex data transformations and provides a streamlined workflow for businesses to manage their invoicing processes. The solution significantly reduces manual work and minimizes errors in invoice generation.`,
+      "A nationwide IoT alert platform that routes verified SOS signals from GPS pendant devices to geographically-assigned response hubs in real time — four independently deployable Go microservices, a Tauri desktop command center, and a React Native field app.",
+    longDescription: `This system solves a mission-critical problem: getting a verified emergency signal from a household device to the right response team, fast, even under network stress. The backend is decomposed into four independently deployable Go services — a device gateway ingesting signals over MQTT and legacy GPS protocols (GT06/JT808), a worker that processes and escalates alerts, a gRPC delivery API, and a lightweight dev-mode server — communicating through Apache Kafka running in KRaft mode.
+
+    To make sure an alert is never silently lost, the Kafka producer layer falls back to local disk-spooling during broker outages and replays automatically once the broker recovers. PostgreSQL with TimescaleDB stores time-series audit and incident data as hypertables, and Redis backs IMEI-allowlisted rate limiting on device ingest.
+
+    The system ships with two companion clients: a Tauri (Rust + React) desktop command center for hub operators, with a live satellite map, catchment-boundary overlays, and an audio-alert incident stream; and a React Native field app for on-the-ground responders, with secure location heartbeats and TOTP-secured authentication. Security runs on RS256 JWT and AES-256-GCM encryption end-to-end.`,
     link: "#",
-    github: "https://github.com/wisdomdzontoh/invoice-generator",
-    technologies: ["Python", "sevDesk API", "Pandas", "FastAPI", "CSV & XLSX handling"],
-    image: "/assets/student-mgt.jpg",
-    screenshots: ["/assets/student-mgt.jpg"],
+    technologies: ["Go", "Apache Kafka", "MQTT (EMQX)", "PostgreSQL + TimescaleDB", "Redis", "gRPC", "Tauri (Rust)", "React Native"],
+    image: "/assets/projects/emergency-ers.svg",
+    screenshots: ["/assets/projects/emergency-ers.svg"],
     features: [
-      "Automated invoice generation using sevDesk API",
-      "Data processing from Excel/CSV files",
-      "Invoice organization by date and time",
-      "Robust error handling and validation",
-      "Streamlined workflow for invoice management",
+      "CQRS-style backend split across 4 independently deployable Go services",
+      "Kafka (KRaft) event streaming with disk-spool fallback so alerts survive broker outages",
+      "IMEI-allowlisted device ingest over MQTT with Redis-backed rate limiting",
+      "TimescaleDB hypertables for time-series incident and audit logging",
+      "Tauri desktop command center with live satellite maps for hub operators",
+      "React Native field app for responders with secure location heartbeat tracking",
+      "RS256 JWT + TOTP two-factor auth with AES-256-GCM encryption throughout",
     ],
     challenges: [
       {
-        description: "Handling complex data transformations from various file formats.",
+        description: "An alert getting silently dropped if the message broker goes down mid-incident isn't an acceptable failure mode.",
         solution:
-          "Implemented robust data parsing and validation using Pandas to ensure data integrity and handle different file formats consistently.",
+          "Built a disk-spool fallback into the Kafka producer layer so alert events persist locally during an outage and replay automatically once the broker recovers, instead of being lost.",
       },
       {
-        description: "Integrating with external API while maintaining data security.",
+        description: "Coordinating four independently deployable services without tight coupling or a single point of failure.",
         solution:
-          "Developed secure API integration patterns with proper authentication and error handling to ensure reliable communication with sevDesk API.",
+          "Adopted a CQRS-style decomposition (gateway, worker, api, server) communicating over internal gRPC, so each service can be deployed, scaled, and restarted on its own.",
       },
     ],
     featured: true,
     role: "Software Engineer",
-    duration: "2 months",
+    duration: "Ongoing",
   },
   {
-    id: "campaign-automation",
-    title: "Campaign Automation Tool",
+    id: "holistic-assessment",
+    title: "Holistic Assessment Automation Platform",
     description:
-      "An end-to-end solution that automates lead campaign processes by cleaning data, integrating with ChatGPT for analysis, and connecting with CRM systems.",
-    longDescription: `This comprehensive campaign automation tool streamlines lead generation and management processes for businesses. The system automates data cleaning and integration by reading data from CSV/XLSX files and storing it in a Turso database.
-    
-    The application utilizes the ChatGPT API to analyze and assign data attributes, enhancing lead scoring accuracy. It seamlessly integrates with Pipedrive (CRM) and Lemlist for coordinated lead campaigns, creating a unified workflow for marketing teams.
-    
-    Built with Python and leveraging modern APIs, the system provides intelligent data processing, automated lead scoring, and seamless CRM integration. This solution significantly improves lead quality and campaign effectiveness while reducing manual work.`,
-    link: "#",
-    github: "https://github.com/wisdomdzontoh/campaign-automation",
-    technologies: ["Python", "ChatGPT API", "Turso", "Pipedrive API", "Lemlist"],
-    image: "/assets/react-job-listing.png",
-    screenshots: ["/assets/react-job-listing.png"],
+      "Rebuilt Ghana Health Service's Excel-based facility assessment process as a web platform with a real-time weighted scoring engine, DHIS2 integration, and fully configurable indicators.",
+    longDescription: `Ghana Health Service scores health facility performance using a "Holistic Assessment Tool" that started life as an unwieldy Excel workbook. This platform rebuilds that process as a proper web application, integrated directly with DHIS2 (Ghana's national health information system).
+
+    The backend runs on Django REST Framework, PostgreSQL, and Celery + Redis for asynchronous processing, deployed behind Gunicorn and NGINX in Docker. Rather than maintaining a separate user database, authentication runs on DHIS2 Basic Auth, with role-based access (Super Admin, National, Regional, District, Facility) derived directly from each user's DHIS2 org-unit assignment.
+
+    Roughly 80% of indicator data is pulled automatically from the DHIS2 API, with the remainder entered manually where DHIS2 doesn't have it. Scores are computed by a real-time weighted engine on a −2 to +2 scale, with indicators, weights, and targets fully configurable from an admin panel — so scoring-rule changes don't require a code deploy. Results export to Excel, CSV, and PDF with the same conditional formatting the original Excel tool used, and the Next.js/TypeScript frontend gives facility and district staff a UI built for actual field use.`,
+    link: "https://holistic-generator.leadsranc.com",
+    github: "https://github.com/wisdomdzontoh/holistic-backend",
+    technologies: ["Django REST Framework", "PostgreSQL", "Celery", "Redis", "Next.js", "TypeScript", "DHIS2 API", "Docker"],
+    image: "/assets/projects/holistic-assessment.svg",
+    screenshots: ["/assets/projects/holistic-assessment.svg"],
     features: [
-      "Automated data cleaning and integration",
-      "ChatGPT API integration for lead analysis",
-      "Turso database for efficient data storage",
-      "Pipedrive CRM integration",
-      "Lemlist campaign coordination",
-      "Intelligent lead scoring system",
+      "Real-time weighted scoring engine on a configurable −2 to +2 scale",
+      "DHIS2 API integration auto-populating roughly 80% of indicator data",
+      "DHIS2-based authentication with org-unit-derived, role-based access control",
+      "Fully configurable indicators, weights, and targets via an admin panel — no redeploy needed",
+      "Multi-period scoring (monthly, quarterly, half-yearly, yearly)",
+      "Excel, CSV, and PDF export preserving the original tool's conditional formatting",
     ],
     challenges: [
       {
-        description: "Integrating multiple third-party APIs while maintaining system reliability.",
+        description: "Replacing an Excel tool that health facility staff already trusted, without standing up a separate login system.",
         solution:
-          "Implemented robust error handling and retry mechanisms with proper API rate limiting to ensure reliable integration with all external services.",
+          "Authenticated directly against DHIS2 Basic Auth and derived role-based permissions from each user's existing DHIS2 org-unit assignment, so there was no new credential system to roll out.",
       },
       {
-        description: "Ensuring data consistency across different platforms.",
+        description: "Keeping scoring logic flexible as indicators and weights change across reporting periods.",
         solution:
-          "Developed a unified data model and synchronization system that maintains data integrity across Turso database, Pipedrive, and Lemlist.",
-      },
-    ],
-    featured: true,
-    role: "Software Engineer",
-    duration: "3 months",
-  },
-  {
-    id: "web-scraping-lead-gen",
-    title: "Web Scraping & Lead Generation",
-    description:
-      "A sophisticated web scraping tool that extracts data from websites, scores leads using a BK_Tree algorithm, and enhances accuracy with AI integration.",
-    longDescription: `This advanced web scraping and lead generation system combines traditional web scraping techniques with modern AI capabilities to deliver high-quality leads for businesses. The system automates extraction of web data using Selenium, ensuring reliable data collection from various websites.
-    
-    The application employs a BK_Tree algorithm for scoring leads based on defined metrics, providing intelligent lead qualification. It integrates ChatGPT API to enhance lead scoring accuracy, making the system more effective at identifying high-value prospects.
-    
-    Built with Python and leveraging Selenium for web automation, the system provides comprehensive lead generation capabilities with intelligent scoring and AI-enhanced accuracy. This solution significantly improves lead quality and reduces manual research time.`,
-    link: "#",
-    github: "https://github.com/wisdomdzontoh/web-scraping-lead-gen",
-    technologies: ["Python", "Selenium", "ChatGPT API", "Pandas", "BK_Tree Algorithm"],
-    image: "/assets/maternal-death.png",
-    screenshots: ["/assets/maternal-death.png"],
-    features: [
-      "Automated web data extraction using Selenium",
-      "BK_Tree algorithm for intelligent lead scoring",
-      "ChatGPT API integration for enhanced accuracy",
-      "Comprehensive data processing and analysis",
-      "Configurable scraping parameters",
-      "Lead quality assessment and ranking",
-    ],
-    challenges: [
-      {
-        description: "Handling dynamic web content and anti-scraping measures.",
-        solution:
-          "Implemented advanced Selenium techniques with proper wait strategies and user-agent rotation to handle dynamic content and avoid detection.",
-      },
-      {
-        description: "Optimizing lead scoring algorithm for accuracy and performance.",
-        solution:
-          "Developed a hybrid scoring system combining BK_Tree algorithm with AI analysis to provide both fast processing and high accuracy in lead qualification.",
-      },
-    ],
-    featured: true,
-    role: "Software Engineer",
-    duration: "2 months",
-  },
-  {
-    id: "health-chatbot",
-    title: "Health Information Chatbot",
-    description:
-      "Built an end-to-end chatbot that helps professionals answer questions in relation to Standard operating procedures, documentations etc.",
-    longDescription: `This comprehensive health information chatbot system is designed to assist healthcare professionals by providing instant access to standard operating procedures, documentation, and medical guidelines. The system leverages advanced AI capabilities to deliver accurate and contextually relevant information.
-    
-    Built with FastAPI and Langchain, the application provides a robust backend infrastructure for handling complex medical queries. It integrates with OpenAI API and Ollama for enhanced AI capabilities, while the frontend is developed using Next.js and shadcn UI library for an intuitive user experience.
-    
-    The system is specifically designed for healthcare environments where quick access to accurate information is critical. It helps reduce response time for medical queries and ensures consistent information delivery across healthcare teams.`,
-    link: "#",
-    github: "#",
-    technologies: ["FastAPI", "Langchain", "OpenAI API", "Ollama", "Next.js", "shadcn UI"],
-    image: "/assets/med-rec-system.png",
-    screenshots: ["/assets/med-rec-system.png"],
-    features: [
-      "AI-powered health information retrieval",
-      "Integration with medical documentation systems",
-      "Real-time query processing",
-      "Secure healthcare data handling",
-      "User-friendly interface for healthcare professionals",
-      "Comprehensive medical knowledge base",
-    ],
-    challenges: [
-      {
-        description: "Ensuring accuracy and reliability of medical information.",
-        solution:
-          "Implemented rigorous validation systems and medical knowledge verification processes to ensure all provided information meets healthcare standards.",
-      },
-      {
-        description: "Handling complex medical queries with appropriate context.",
-        solution:
-          "Developed advanced prompt engineering techniques and context-aware response generation to provide accurate and relevant medical information.",
+          "Moved indicators, weights, and targets into an admin-configurable model instead of hardcoding them, so scoring-rule updates are a data change, not a code change.",
       },
     ],
     featured: true,
     role: "Full-Stack Developer",
-    duration: "4 months",
+    duration: "2025 – Present",
   },
   {
-    id: "chatbot-saas",
-    title: "AI Chatbot SAAS Application",
+    id: "imems-nmc",
+    title: "Integrated M&E Management System — Nursing & Midwifery Regulation",
     description:
-      "A web application that allows users to create, train, and deploy custom chatbots with data-specific training.",
-    longDescription: `This AI Chatbot SAAS platform enables businesses to create custom chatbots trained on their specific data. 
-    
-    The application features a user-friendly interface for chatbot creation, training, and deployment. Users can upload documents, connect knowledge bases, and fine-tune their chatbots to provide accurate responses based on their business data.
-    
-    The backend is built with Django REST Framework, providing robust API endpoints for chatbot management, user authentication, and data processing. The frontend uses Next.js for a responsive and interactive user experience, with real-time chat functionality.
-    
-    The system integrates with OpenAI's API to leverage advanced language models while maintaining data privacy and security. The chatbots can be embedded into websites via a JavaScript snippet, making deployment simple for non-technical users.`,
-    link: "https://chatwise-ai.vercel.app",
-    github: "https://github.com/wisdomdzontoh/AI-assistant-bot-frontend",
-    technologies: ["Django REST Framework", "Next.js", "OpenAI API", "Tailwind CSS", "PostgreSQL", "Redis"],
-    image: "/assets/chatwise_ai.png",
-    screenshots: ["/assets/chatwise_ai.png", "/assets/chatbot-dashboard.png", "/assets/chatbot-training.png"],
+      "A national regulatory reporting platform for a Ministry of Health-affiliated licensing body, covering structured data entry, analytics, and real-time reporting across its monitoring & evaluation workflows.",
+    longDescription: `IMEMS digitizes the monitoring and evaluation reporting process for a national nursing and midwifery regulatory body, replacing fragmented spreadsheet-based reporting with a structured, role-gated web platform.
+
+    The frontend is built on Next.js (App Router) with TypeScript, styled with Tailwind CSS and a shadcn/ui component system, using Zustand for client-side state alongside React Context for shared app state. It's paired with a REST API backend for secure, role-based data handling appropriate for institutional and government use.
+
+    The platform covers six core capabilities end-to-end: structured data entry, standardized reporting, analytics, real-time insights, report generation, and data export/sharing — giving regulatory staff a single system instead of scattered documents.`,
+    link: "https://nmc-reporting-system.vercel.app",
+    github: "https://github.com/wisdomdzontoh/nmc-frontend",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "Zustand", "REST API"],
+    image: "/assets/projects/imems-nmc.svg",
+    screenshots: ["/assets/projects/imems-nmc.svg"],
     features: [
-      "Custom chatbot creation with personalized branding",
-      "Document upload and knowledge base integration for training",
-      "Real-time chat interface with typing indicators",
-      "Analytics dashboard to track user interactions",
-      "Website embedding via JavaScript snippet",
-      "User management with different permission levels",
-      "Subscription billing integration",
+      "Structured, form-driven data entry for regulatory reporting workflows",
+      "Real-time analytics and insights dashboards",
+      "Standardized report generation with export & share options",
+      "Role-gated authentication built for institutional/government use",
+      "Component system built on Next.js App Router, Zustand, and shadcn/ui",
     ],
     challenges: [
       {
-        description: "Handling large document uploads and processing them efficiently for chatbot training.",
+        description: "Making a rigid regulatory reporting schema usable by non-technical institutional staff.",
         solution:
-          "Implemented a chunking algorithm that breaks documents into smaller pieces and processes them asynchronously using Celery tasks, significantly improving processing speed and resource utilization.",
+          "Built structured, form-driven data entry flows on top of shadcn/ui components, keeping validation and schema enforcement on the backend while the UI stays approachable for day-to-day users.",
+      },
+    ],
+    featured: true,
+    role: "Full-Stack Developer",
+    duration: "2025 – 2026",
+  },
+  {
+    id: "ebads",
+    title: "EBADS — Emergency Bed Allocation Decision Support",
+    description:
+      "A decision-support system that algorithmically matches emergency patients to the most appropriate hospital facility across Ghana's referral network — evaluated through discrete-event simulation and formal statistical testing rather than guesswork.",
+    longDescription: `EBADS addresses a real bottleneck in emergency care: deciding which facility an incoming patient should be routed to, given bed availability, travel time, and facility capability. It was built and evaluated as a rigorously-tested systems project, seeded with a 24+ facility dataset across Greater Accra.
+
+    The backend runs on FastAPI with PostgreSQL and Alembic migrations, containerized with Docker Compose. At its core is a multi-algorithm allocation engine — three competing allocation strategies benchmarked against each other — using travel-time estimation via the Google Maps API and Haversine distance calculations.
+
+    Rather than shipping the allocation logic on faith, it's validated through a discrete-event simulation framework with deterministic seeding for repeatable offline evaluation (no real patient data involved), backed by a formal statistical pipeline — Shapiro-Wilk normality tests, paired t-tests, Wilcoxon signed-rank tests, and sensitivity analysis — against defined KPIs: Average Time to Bed Placement, Facility Referral Rate, and Mean Cost per Emergency Encounter. The engineering process itself is documented in a companion specs repository tracing every implementation decision back to the underlying research.`,
+    link: "https://ebads-portal.vercel.app",
+    github: "https://github.com/wisdomdzontoh/ebads",
+    technologies: ["FastAPI", "PostgreSQL", "Alembic", "Docker", "Google Maps API", "Statistical Analysis"],
+    image: "/assets/projects/ebads.svg",
+    screenshots: ["/assets/projects/ebads.svg"],
+    features: [
+      "Multi-algorithm emergency bed allocation engine with head-to-head benchmarking",
+      "Discrete-event simulation with deterministic seeding for repeatable evaluation",
+      "Formal statistical validation pipeline (Shapiro-Wilk, paired t-test, Wilcoxon signed-rank)",
+      "Defined KPI tracking: time-to-bed-placement, referral rate, cost per encounter",
+      "Travel-time estimation via Google Maps API / Haversine distance",
+      "Engineering process fully documented and traced back to the underlying research spec",
+    ],
+    challenges: [
+      {
+        description: "Proving an allocation algorithm actually performs better without access to real patient data.",
+        solution:
+          "Built a discrete-event simulation framework with deterministic seeding, then validated results with a formal statistical pipeline (Shapiro-Wilk, paired t-test, Wilcoxon signed-rank) instead of relying on a single benchmark run.",
       },
       {
-        description: "Ensuring chatbot responses were accurate and relevant to the uploaded knowledge base.",
+        description: "Comparing multiple allocation strategies fairly under identical conditions.",
         solution:
-          "Developed a custom vector similarity search using PostgreSQL with pgvector extension to find the most relevant context from the knowledge base before generating responses.",
+          "Ran all three competing algorithms through the same simulation harness and KPI set (time-to-bed-placement, referral rate, cost per encounter) for an apples-to-apples comparison.",
+      },
+    ],
+    featured: true,
+    role: "Software Engineer",
+    duration: "2025 – 2026",
+  },
+  {
+    id: "african-investment-hub",
+    title: "African Investment Hub",
+    description:
+      "A backend platform for connecting investors with opportunities across African markets, built on a modern async Python stack with vector search for AI-assisted matching.",
+    longDescription: `African Investment Hub is a backend platform designed to connect investors with investment opportunities across African markets. It's built on FastAPI with a fully async architecture — SQLAlchemy 2.0's async ORM over PostgreSQL 16, which uses the pgvector extension for embedding-based matching and search.
+
+    Background processing runs on ARQ, with Redis for caching and job queues. Auth is handled through Clerk with JWT verification, and AI-assisted features (matching, summarization) are built on the OpenAI API with Langfuse for LLM observability. File storage runs on Cloudflare R2, transactional email through Resend, and Sentry for error monitoring — production tooling usually reserved for much later-stage products.
+
+    The codebase enforces a minimum 85% test coverage, with Ruff and MyPy running as pre-commit hooks, OpenAPI auto-documentation, Alembic migrations, and feature-flagged rollout for in-progress capabilities.`,
+    link: "#",
+    github: "https://github.com/wisdomdzontoh/africa-investment-hub-backend",
+    technologies: ["FastAPI", "PostgreSQL + pgvector", "SQLAlchemy 2.0 (async)", "Redis", "ARQ", "OpenAI API", "Clerk", "Docker"],
+    image: "/assets/projects/investment-hub.svg",
+    screenshots: ["/assets/projects/investment-hub.svg"],
+    features: [
+      "Fully async backend: FastAPI + SQLAlchemy 2.0 over PostgreSQL 16",
+      "pgvector-powered embedding search for AI-assisted investor/opportunity matching",
+      "Background job processing via ARQ with Redis-backed queues and caching",
+      "Clerk-based JWT authentication and authorization",
+      "OpenAI API integration with Langfuse for LLM observability",
+      "85%+ enforced test coverage with Ruff + MyPy pre-commit hooks",
+    ],
+    challenges: [
+      {
+        description: "Building AI-assisted matching that needs to stay explainable and observable, not a black box.",
+        solution:
+          "Paired OpenAI API calls with Langfuse tracing so every LLM interaction in the matching pipeline is logged and inspectable, rather than opaque.",
+      },
+    ],
+    featured: false,
+    role: "Backend Developer",
+    duration: "2026",
+  },
+  {
+    id: "chatbot-saas",
+    title: "ChatWise — AI Customer Support Platform",
+    description:
+      "An AI customer-support SaaS that lets businesses train a custom chatbot on their own PDFs, websites, and docs, with human-agent fallback and multi-language support — no code required.",
+    longDescription: `ChatWise enables businesses to create custom support chatbots trained on their own data. Users upload documents, connect knowledge bases, and fine-tune persona and tone, all through a UI built for non-technical users.
+
+    The backend is built with Django REST Framework, providing API endpoints for chatbot management, authentication, and data processing. The frontend uses Next.js for a responsive, real-time chat experience.
+
+    The system integrates with the OpenAI API for response generation while keeping training data isolated per business. Chatbots embed into any website via a JavaScript snippet, and the platform exposes webhooks and an API for teams that want deeper integration.`,
+    link: "https://chatwise-ai.vercel.app",
+    github: "https://github.com/wisdomdzontoh/AI-assistant-bot-frontend",
+    technologies: ["Django REST Framework", "Next.js", "OpenAI API", "PostgreSQL (pgvector)", "Redis", "Celery", "Tailwind CSS"],
+    image: "/assets/chatwise_ai.png",
+    screenshots: ["/assets/chatwise_ai.png"],
+    features: [
+      "Custom chatbot creation with persona branding, trained on PDFs/websites/docs",
+      "Automatic multi-language detection",
+      "Smart fallback to a human agent when the bot can't confidently answer",
+      "Conversation analytics dashboard for support teams",
+      "Website embedding via a JavaScript snippet",
+      "Webhook & API access for deeper integrations",
+    ],
+    challenges: [
+      {
+        description: "Processing large document uploads efficiently for chatbot training.",
+        solution:
+          "Chunk documents and process them asynchronously via Celery, keeping upload response times fast while training happens in the background.",
       },
       {
-        description: "Managing API costs while providing a responsive user experience.",
+        description: "Keeping chatbot answers grounded in the uploaded knowledge base instead of hallucinating.",
         solution:
-          "Implemented a tiered caching system with Redis that stores frequent queries and responses, reducing API calls by approximately 40% while maintaining response quality.",
+          "Built a vector similarity search on PostgreSQL with the pgvector extension to retrieve the most relevant context before generating a response.",
       },
     ],
     featured: false,
     role: "Full-Stack Developer",
-    duration: "3 months",
-  },
-  {
-    id: "data-visualizer",
-    title: "Data Visualizer Dashboard",
-    description:
-      "A dashboard application that enables users to create visualizations from uploaded CSV/Excel files or database connections.",
-    longDescription: `The Data Visualizer Dashboard is a comprehensive solution for data analysis and visualization. It allows users to upload data files or connect directly to databases to generate interactive charts and dashboards.
-    
-    The application supports various data sources including CSV, Excel, JSON files, and direct connections to MySQL, PostgreSQL, and MongoDB databases. Users can create custom dashboards with multiple visualization types including line charts, bar charts, pie charts, scatter plots, and heat maps.
-    
-    The platform features a drag-and-drop interface for dashboard creation, making it accessible to non-technical users. Advanced users can write custom SQL queries or use the built-in query builder to transform data before visualization.
-    
-    Dashboards can be shared with specific users or made public with view-only permissions. The system also supports scheduled exports and reports via email.`,
-    link: "#",
-    github: "https://github.com/wisdomdzontoh/dataviz-frontend",
-    technologies: ["Django REST Framework", "Next.js", "Chart.js", "shadcn/ui", "PostgreSQL", "WebSockets"],
-    image: "/assets/data_viz.png",
-    screenshots: ["/assets/data_viz.png", "/assets/data-viz-chart.png", "/assets/data-viz-dashboard.png"],
-    features: [
-      "Support for multiple data sources (CSV, Excel, JSON, databases)",
-      "Interactive chart creation with 10+ visualization types",
-      "Drag-and-drop dashboard builder",
-      "Real-time collaboration with WebSockets",
-      "Custom SQL query support and visual query builder",
-      "Dashboard sharing and permission management",
-      "Scheduled reports and exports",
-    ],
-    challenges: [
-      {
-        description: "Handling large datasets efficiently in the browser without performance issues.",
-        solution:
-          "Implemented data sampling and progressive loading techniques that analyze data size and automatically apply appropriate optimization strategies based on browser capabilities.",
-      },
-      {
-        description: "Creating a flexible yet user-friendly interface for chart customization.",
-        solution:
-          "Developed a modular chart configuration system with sensible defaults and progressive disclosure of advanced options, balancing simplicity with power.",
-      },
-      {
-        description: "Supporting real-time collaboration on dashboards.",
-        solution:
-          "Implemented a WebSocket-based system with operational transformation to handle concurrent edits, similar to how Google Docs manages collaborative editing.",
-      },
-    ],
-    featured: true,
-    role: "Lead Developer",
-    duration: "4 months",
-  },
-  {
-    id: "expense-tracker",
-    title: "Expense Tracker Application",
-    description:
-      "A responsive web application for tracking personal and business expenses with interactive visualizations and trend analysis.",
-    longDescription: `The Expense Tracker is a comprehensive financial management tool designed to help individuals and small businesses monitor their spending habits and financial health.
-    
-    The application allows users to record expenses and income, categorize transactions, and attach receipts or invoices. It provides detailed reports and visualizations to help users understand their spending patterns and identify areas for potential savings.
-    
-    Key features include budget creation and tracking, recurring transaction management, and financial goal setting. The dashboard presents an overview of current financial status with customizable widgets for different metrics.
-    
-    The application is built with a responsive design that works seamlessly across desktop and mobile devices, allowing users to track expenses on the go. Data is securely stored and can be exported in various formats for accounting purposes.`,
-    link: "https://expenses-tracker-eosin-one.vercel.app",
-    github: "https://github.com/wisdomdzontoh/ExpensesTracker-Frontend",
-    technologies: ["Django REST Framework", "Next.js", "Chart.js", "Tailwind CSS", "PostgreSQL"],
-    image: "/assets/expense-tracker.png",
-    screenshots: ["/assets/expense-tracker.png", "/assets/expense-dashboard.png", "/assets/expense-reports.png"],
-    features: [
-      "Expense and income tracking with categorization",
-      "Receipt/invoice attachment and storage",
-      "Budget creation and monitoring",
-      "Recurring transaction management",
-      "Interactive reports and visualizations",
-      "Financial goal setting and tracking",
-      "Data export in multiple formats (CSV, PDF, Excel)",
-    ],
-    challenges: [
-      {
-        description: "Creating intuitive data entry forms that work well on both desktop and mobile.",
-        solution:
-          "Designed a progressive form system that adapts to the device size, with simplified quick-entry on mobile and more detailed options on desktop.",
-      },
-      {
-        description: "Generating meaningful insights from financial data that help users improve their habits.",
-        solution:
-          "Developed an analytics engine that identifies spending patterns and anomalies, providing actionable recommendations based on historical data and user-defined goals.",
-      },
-      {
-        description: "Ensuring data security while maintaining good performance.",
-        solution:
-          "Implemented end-to-end encryption for sensitive financial data with a hybrid approach that keeps frequently accessed data in a secure but performant state.",
-      },
-    ],
-    role: "Full-Stack Developer",
-    duration: "2 months",
+    duration: "2024 – Present",
   },
   {
     id: "i-cast-voting",
     title: "I-Cast Voting Platform",
     description:
-      "An end-to-end solution that allows organizations to create and manage voting events with real-time results and analytics.",
-    longDescription: `I-Cast is a secure, transparent voting platform designed for organizations of all sizes to conduct elections, polls, and surveys with confidence.
-    
-    The platform enables administrators to create custom voting events with various question types, candidate profiles, and voting rules. It supports different authentication methods to verify voter eligibility, including email verification, access codes, and integration with organizational directories.
-    
-    The voting interface is designed to be intuitive and accessible, working across devices and meeting WCAG accessibility standards. Real-time results are available to administrators, with customizable public results displays that can be embedded in websites or shared via direct links.
-    
-    Security features include end-to-end encryption, audit logs, and optional blockchain verification for maximum transparency. The system is designed to prevent double-voting while maintaining voter anonymity when required.`,
-    link: "#projects",
+      "A secure, AI-integrated voting platform for schools, unions, corporates, and government bodies — encrypted OTP-verified voting, real-time results, and AI-generated summaries and analytics.",
+    longDescription: `I-Cast is a secure, transparent voting platform built for organizations of all sizes to run elections, polls, and surveys with confidence.
+
+    Administrators create custom voting events with different question types, candidate profiles, and voting rules, verifying voter eligibility through OTP or organizational directory integration. The platform is multi-tenant, so many organizations run independently on the same infrastructure, with a mobile-responsive, installable PWA for voters.
+
+    Real-time results include AI-generated summaries and analytics heatmaps. Security features include end-to-end encrypted voting, comprehensive audit logs, and anti-double-vote protection, and the platform supports white-labeling and a developer API for teams that want to embed voting into their own products.`,
+    link: "https://i-cast.vercel.app",
     github: "https://github.com/wisdomdzontoh/I-CAST_Voting_Platform_frontend",
-    technologies: ["Django REST Framework", "Next.js", "WebSockets", "Tailwind CSS", "PostgreSQL"],
+    technologies: ["Django REST Framework", "Next.js", "PostgreSQL", "WebSockets", "OpenAI API", "Tailwind CSS"],
     image: "/assets/i-cast.png",
-    screenshots: ["/assets/i-cast.png", "/assets/voting-admin.png", "/assets/voting-results.png"],
+    screenshots: ["/assets/i-cast.png"],
     features: [
-      "Custom voting event creation with multiple question types",
-      "Secure voter authentication and verification",
-      "Real-time results and analytics",
-      "Mobile-responsive voting interface",
-      "Customizable public results display",
-      "Comprehensive audit logs and reporting",
-      "Optional blockchain verification for transparency",
+      "OTP-verified, encrypted voting with anti-double-vote protection",
+      "Real-time results with AI-generated summaries and analytics heatmaps",
+      "Multi-tenant architecture supporting many organizations on one platform",
+      "Mobile-responsive, installable PWA",
+      "Comprehensive audit logging for election integrity",
+      "White-labeling and a developer API for embedding into other systems",
     ],
     challenges: [
       {
-        description: "Ensuring the voting system is both secure and user-friendly.",
+        description: "Ensuring the voting system is both secure and simple enough for non-technical voters.",
         solution:
-          "Implemented a multi-layered security approach with simple user flows, using progressive security that adapts to the sensitivity of the election.",
+          "Implemented a multi-layered but progressive security model — OTP verification and encryption by default, with stronger controls scaling up for higher-stakes elections.",
       },
       {
-        description: "Handling high traffic during peak voting periods without performance degradation.",
+        description: "Handling traffic spikes during peak voting windows without degrading performance.",
         solution:
-          "Designed a scalable architecture with load balancing and caching strategies specifically optimized for the read-heavy, write-light pattern of voting systems.",
-      },
-      {
-        description: "Creating a flexible system that works for different types of elections and organizations.",
-        solution:
-          "Developed a modular system with customizable components that can be configured to match the specific rules and requirements of different electoral processes.",
+          "Designed the architecture around the read-heavy, write-light pattern typical of voting systems, with caching and WebSocket-based result updates instead of client polling.",
       },
     ],
+    featured: false,
     role: "Backend Developer & System Architect",
-    duration: "3 months",
+    duration: "2024 – Present",
+  },
+  {
+    id: "learndrill-ai",
+    title: "LearnDrill AI",
+    description:
+      "An AI-powered study platform that converts uploaded notes, videos, and web pages into flashcards, adaptive quizzes, and practice tests, using spaced repetition to help students study more efficiently.",
+    longDescription: `LearnDrill AI helps students turn raw study material into an active study routine instead of passive re-reading. Users upload notes, lecture videos, or web pages, and the platform generates flashcards, adaptive quizzes, and practice tests from that content automatically.
+
+    Progress is tracked per topic on a spectrum from "unfamiliar" to "mastered," and the review schedule adapts using spaced-repetition and active-recall principles — so students spend more time on what they haven't retained yet, rather than material they already know.`,
+    link: "https://learndrill-ai.vercel.app",
+    technologies: ["Next.js", "Tailwind CSS", "AI/LLM Integration"],
+    image: "/assets/projects/learndrill.svg",
+    screenshots: ["/assets/projects/learndrill.svg"],
+    features: [
+      "Converts uploaded notes, videos, and web pages into study material automatically",
+      "AI-generated flashcards and adaptive quizzes",
+      "Spaced-repetition scheduling based on per-topic mastery tracking",
+      "Built for college and university exam preparation",
+    ],
+    challenges: [
+      {
+        description: "Turning unstructured source material (notes, video, web pages) into well-formed quiz and flashcard content.",
+        solution:
+          "Built an AI content pipeline that extracts and restructures key concepts from mixed input formats into structured question/answer pairs before generating study material.",
+      },
+    ],
+    featured: false,
+    role: "Full-Stack Developer",
+    duration: "2024 – Present",
   },
 ]
 

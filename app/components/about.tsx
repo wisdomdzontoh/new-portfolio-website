@@ -41,10 +41,13 @@ export default function About() {
           <div className="inline-block px-3 py-1 bg-primary/10 rounded-full text-primary text-sm font-medium mb-4">
             About Me
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Data Analytics Engineer & Software Engineer</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Software Engineer, Backend &amp; Data Systems</h2>
           <div className="w-20 h-1 bg-primary rounded-full mb-6"></div>
           <p className="max-w-2xl text-muted-foreground text-lg">
-            Strategic Software Engineer skilled in application development, testing and optimization. Excels at coordinating ground-up planning, programming, and implementation for core modules. Maintains strong object-oriented and software architecture fundamentals.
+            Results-driven Software Engineer with 4+ years of experience designing, building, and optimizing scalable
+            web and AI-powered applications. I've shipped production systems for national health regulators,
+            emergency-response infrastructure, and AI SaaS products — with a focus on clean architecture, reliable
+            APIs, and data pipelines that hold up under real-world use.
           </p>
         </div>
 
@@ -58,7 +61,7 @@ export default function About() {
           <motion.div variants={itemVariants} className="relative">
             <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-xl">
               <Image
-                src="/assets/my_passport_photo.jpg"
+                src="/assets/profile-pic.jpeg"
                 alt="Wisdom Dzontoh"
                 width={600}
                 height={700}
@@ -96,19 +99,19 @@ export default function About() {
             <h3 className="text-2xl font-bold text-primary">My Tech Stack</h3>
             <div className="space-y-4 text-muted-foreground">
               <p className="leading-relaxed">
-                <span className="text-foreground font-medium">LLM Frameworks:</span> OpenAI, LangChain
+                <span className="text-foreground font-medium">Languages:</span> Python, TypeScript/JavaScript, Java, C++, Go, PHP
               </p>
               <p className="leading-relaxed">
-                <span className="text-foreground font-medium">Programming Languages:</span> Python (Advanced), TypeScript, Java, C++
+                <span className="text-foreground font-medium">Backend:</span> Django, Django REST Framework, FastAPI, RESTful API design
               </p>
               <p className="leading-relaxed">
-                <span className="text-foreground font-medium">Backend Frameworks:</span> FastAPI, Django (DRF), Laravel, Node.js
+                <span className="text-foreground font-medium">Frontend:</span> Next.js, React, Tailwind CSS, shadcn/ui
               </p>
               <p className="leading-relaxed">
-                <span className="text-foreground font-medium">Data & Infrastructure:</span> PostgreSQL, Redis, AWS, Kubernetes, Docker
+                <span className="text-foreground font-medium">Data & Infrastructure:</span> PostgreSQL, MySQL, MongoDB, Docker, AWS (EC2, S3), GitHub Actions CI/CD
               </p>
               <p className="leading-relaxed">
-                <span className="text-foreground font-medium">Frontend:</span> Next.js, JavaScript, Tailwind CSS, shadcn/ui
+                <span className="text-foreground font-medium">AI & Automation:</span> OpenAI API, LangChain, Pandas/NumPy, workflow automation with n8n
               </p>
             </div>
 
@@ -143,7 +146,8 @@ export default function About() {
             </div>
             <p className="text-muted-foreground leading-relaxed">
               Specialized in building robust backend systems with Django, FastAPI, and RESTful APIs. Experienced in
-              database design, API integrations, and developing efficient data pipelines for scalable applications.
+              database design, third-party API integrations, and asynchronous data pipelines (Celery, Redis) for
+              systems that need to hold accurate, high-stakes data.
             </p>
           </motion.div>
 
@@ -160,8 +164,8 @@ export default function About() {
               </h3>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              Experienced in developing end-to-end web applications using modern frameworks like Django, Next.js, and
-              React. Skilled in creating responsive UIs with Tailwind CSS and integrating them with backend services.
+              Experienced in developing end-to-end web applications using Django or FastAPI backends paired with
+              Next.js and React frontends. Comfortable owning a product from database schema to deployed UI.
             </p>
           </motion.div>
 
@@ -178,9 +182,9 @@ export default function About() {
               </h3>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              Proficient in data analytics, automation, and AI integrations. Experienced in working with OpenAI APIs,
-              web scraping, and building data-driven applications that deliver actionable insights and automate
-              processes.
+              Proficient in data analytics, workflow automation, and AI integrations. Experienced in working with the
+              OpenAI API and LangChain to build applications that turn raw data into actionable insight and automate
+              manual processes.
             </p>
           </motion.div>
         </motion.div>

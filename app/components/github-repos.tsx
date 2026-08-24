@@ -29,26 +29,38 @@ const GitHubRepos: React.FC<GitHubReposProps> = ({
   const [sortBy, setSortBy] = useState<'updated' | 'stars' | 'created'>('updated')
   const [rateLimited, setRateLimited] = useState(false)
 
+  // Repos deliberately excluded from both the live feed and the fallback list —
+  // retired/early-stage work that's covered more accurately in the curated Projects section (or not at all).
+  const excludedRepos = new Set([
+    "invoice-generator",
+    "campaign-automation",
+    "web-scraping-lead-gen",
+    "dataviz-frontend",
+    "ExpensesTracker-Frontend",
+    "Atlas-Backend",
+    "agriconnect-mobile-app",
+  ])
+
   // Fallback data when API is rate limited
   const fallbackRepos: GitHubRepository[] = [
     {
       id: 1,
-      name: "new-portfolio-website",
-      full_name: "wisdomdzontoh/new-portfolio-website",
-      description: "My personal portfolio website built with Next.js and TypeScript, showcasing my projects and skills",
-      html_url: "https://github.com/wisdomdzontoh/new-portfolio-website",
-      clone_url: "https://github.com/wisdomdzontoh/new-portfolio-website.git",
-      homepage: "https://wisdomdzontoh.vercel.app",
-      language: "TypeScript",
-      languages_url: "https://api.github.com/repos/wisdomdzontoh/new-portfolio-website/languages",
-      stargazers_count: 2,
-      forks_count: 1,
-      watchers_count: 2,
-      size: 7074,
-      created_at: "2025-04-04T23:44:39Z",
-      updated_at: "2025-05-15T10:36:34Z",
-      pushed_at: "2025-05-15T10:36:30Z",
-      topics: ["portfolio", "nextjs", "typescript", "tailwindcss"],
+      name: "ebads",
+      full_name: "wisdomdzontoh/ebads",
+      description: "Emergency Bed Allocation Decision Support — algorithmic system matching emergency patients to hospital facilities across Ghana's referral network",
+      html_url: "https://github.com/wisdomdzontoh/ebads",
+      clone_url: "https://github.com/wisdomdzontoh/ebads.git",
+      homepage: "https://ebads-portal.vercel.app",
+      language: "Python",
+      languages_url: "https://api.github.com/repos/wisdomdzontoh/ebads/languages",
+      stargazers_count: 0,
+      forks_count: 0,
+      watchers_count: 0,
+      size: 3200,
+      created_at: "2025-09-01T00:00:00Z",
+      updated_at: "2026-08-19T00:00:00Z",
+      pushed_at: "2026-08-19T00:00:00Z",
+      topics: ["fastapi", "postgresql", "simulation", "healthcare"],
       visibility: "public",
       fork: false,
       archived: false,
@@ -57,22 +69,22 @@ const GitHubRepos: React.FC<GitHubReposProps> = ({
     },
     {
       id: 2,
-      name: "ExpensesTracker-Frontend",
-      full_name: "wisdomdzontoh/ExpensesTracker-Frontend",
-      description: "A responsive web application for tracking personal and business expenses with interactive charts and analytics",
-      html_url: "https://github.com/wisdomdzontoh/ExpensesTracker-Frontend",
-      clone_url: "https://github.com/wisdomdzontoh/ExpensesTracker-Frontend.git",
-      homepage: null,
-      language: "TypeScript",
-      languages_url: "https://api.github.com/repos/wisdomdzontoh/ExpensesTracker-Frontend/languages",
-      stargazers_count: 1,
+      name: "holistic-backend",
+      full_name: "wisdomdzontoh/holistic-backend",
+      description: "Backend for the Holistic Assessment Automation Platform — DHIS2-integrated facility scoring engine for Ghana Health Service",
+      html_url: "https://github.com/wisdomdzontoh/holistic-backend",
+      clone_url: "https://github.com/wisdomdzontoh/holistic-backend.git",
+      homepage: "https://holistic-generator.leadsranc.com",
+      language: "Python",
+      languages_url: "https://api.github.com/repos/wisdomdzontoh/holistic-backend/languages",
+      stargazers_count: 0,
       forks_count: 0,
-      watchers_count: 1,
-      size: 440,
-      created_at: "2025-04-19T20:47:56Z",
-      updated_at: "2025-05-11T13:25:28Z",
-      pushed_at: "2025-04-20T13:04:48Z",
-      topics: ["expense-tracker", "react", "typescript", "finance"],
+      watchers_count: 0,
+      size: 2600,
+      created_at: "2025-03-01T00:00:00Z",
+      updated_at: "2026-08-05T00:00:00Z",
+      pushed_at: "2026-08-05T00:00:00Z",
+      topics: ["django", "dhis2", "healthcare", "celery"],
       visibility: "public",
       fork: false,
       archived: false,
@@ -81,22 +93,22 @@ const GitHubRepos: React.FC<GitHubReposProps> = ({
     },
     {
       id: 3,
-      name: "I-CAST_Voting_Platform_frontend",
-      full_name: "wisdomdzontoh/I-CAST_Voting_Platform_frontend",
-      description: "Frontend for I-Cast voting platform built with Next.js, enabling secure and transparent voting processes",
-      html_url: "https://github.com/wisdomdzontoh/I-CAST_Voting_Platform_frontend",
-      clone_url: "https://github.com/wisdomdzontoh/I-CAST_Voting_Platform_frontend.git",
-      homepage: null,
+      name: "nmc-frontend",
+      full_name: "wisdomdzontoh/nmc-frontend",
+      description: "Frontend for IMEMS — Integrated Monitoring & Evaluation Management System for a national nursing and midwifery regulatory body",
+      html_url: "https://github.com/wisdomdzontoh/nmc-frontend",
+      clone_url: "https://github.com/wisdomdzontoh/nmc-frontend.git",
+      homepage: "https://nmc-reporting-system.vercel.app",
       language: "TypeScript",
-      languages_url: "https://api.github.com/repos/wisdomdzontoh/I-CAST_Voting_Platform_frontend/languages",
-      stargazers_count: 1,
+      languages_url: "https://api.github.com/repos/wisdomdzontoh/nmc-frontend/languages",
+      stargazers_count: 0,
       forks_count: 0,
-      watchers_count: 1,
-      size: 463,
-      created_at: "2024-11-02T21:38:20Z",
-      updated_at: "2025-05-05T00:56:45Z",
-      pushed_at: "2024-11-06T18:24:14Z",
-      topics: ["voting", "nextjs", "typescript", "democracy"],
+      watchers_count: 0,
+      size: 1800,
+      created_at: "2025-02-01T00:00:00Z",
+      updated_at: "2026-05-28T00:00:00Z",
+      pushed_at: "2026-05-28T00:00:00Z",
+      topics: ["nextjs", "typescript", "government", "reporting"],
       visibility: "public",
       fork: false,
       archived: false,
@@ -105,9 +117,33 @@ const GitHubRepos: React.FC<GitHubReposProps> = ({
     },
     {
       id: 4,
+      name: "africa-investment-hub-backend",
+      full_name: "wisdomdzontoh/africa-investment-hub-backend",
+      description: "Async FastAPI backend for an investor-matching platform, with pgvector-powered search and AI-assisted matching",
+      html_url: "https://github.com/wisdomdzontoh/africa-investment-hub-backend",
+      clone_url: "https://github.com/wisdomdzontoh/africa-investment-hub-backend.git",
+      homepage: null,
+      language: "Python",
+      languages_url: "https://api.github.com/repos/wisdomdzontoh/africa-investment-hub-backend/languages",
+      stargazers_count: 0,
+      forks_count: 0,
+      watchers_count: 0,
+      size: 1400,
+      created_at: "2026-06-01T00:00:00Z",
+      updated_at: "2026-07-22T00:00:00Z",
+      pushed_at: "2026-07-22T00:00:00Z",
+      topics: ["fastapi", "pgvector", "async", "fintech"],
+      visibility: "public",
+      fork: false,
+      archived: false,
+      disabled: false,
+      default_branch: "main"
+    },
+    {
+      id: 5,
       name: "AI-assistant-bot-frontend",
       full_name: "wisdomdzontoh/AI-assistant-bot-frontend",
-      description: "AI Chatbot SAAS application frontend - Create, train, and deploy custom chatbots with OpenAI integration",
+      description: "ChatWise — AI customer support SaaS frontend. Create, train, and deploy custom chatbots with OpenAI integration",
       html_url: "https://github.com/wisdomdzontoh/AI-assistant-bot-frontend",
       clone_url: "https://github.com/wisdomdzontoh/AI-assistant-bot-frontend.git",
       homepage: "https://chatwise-ai.vercel.app",
@@ -128,47 +164,23 @@ const GitHubRepos: React.FC<GitHubReposProps> = ({
       default_branch: "main"
     },
     {
-      id: 5,
-      name: "dataviz-frontend",
-      full_name: "wisdomdzontoh/dataviz-frontend",
-      description: "Data visualization dashboard that enables users to create visualizations from CSV/Excel files or database connections",
-      html_url: "https://github.com/wisdomdzontoh/dataviz-frontend",
-      clone_url: "https://github.com/wisdomdzontoh/dataviz-frontend.git",
-      homepage: null,
-      language: "TypeScript",
-      languages_url: "https://api.github.com/repos/wisdomdzontoh/dataviz-frontend/languages",
-      stargazers_count: 2,
-      forks_count: 0,
-      watchers_count: 2,
-      size: 890,
-      created_at: "2024-09-20T14:15:00Z",
-      updated_at: "2025-05-08T12:30:00Z",
-      pushed_at: "2025-05-08T12:30:00Z",
-      topics: ["data-visualization", "dashboard", "charts", "analytics"],
-      visibility: "public",
-      fork: false,
-      archived: false,
-      disabled: false,
-      default_branch: "main"
-    },
-    {
       id: 6,
-      name: "invoice-generator",
-      full_name: "wisdomdzontoh/invoice-generator",
-      description: "Automated invoice generation system that integrates with sevDesk API for streamlined billing processes",
-      html_url: "https://github.com/wisdomdzontoh/invoice-generator",
-      clone_url: "https://github.com/wisdomdzontoh/invoice-generator.git",
-      homepage: null,
-      language: "Python",
-      languages_url: "https://api.github.com/repos/wisdomdzontoh/invoice-generator/languages",
+      name: "I-CAST_Voting_Platform_frontend",
+      full_name: "wisdomdzontoh/I-CAST_Voting_Platform_frontend",
+      description: "Frontend for I-Cast, a secure AI-integrated voting platform enabling transparent elections and polls",
+      html_url: "https://github.com/wisdomdzontoh/I-CAST_Voting_Platform_frontend",
+      clone_url: "https://github.com/wisdomdzontoh/I-CAST_Voting_Platform_frontend.git",
+      homepage: "https://i-cast.vercel.app",
+      language: "TypeScript",
+      languages_url: "https://api.github.com/repos/wisdomdzontoh/I-CAST_Voting_Platform_frontend/languages",
       stargazers_count: 1,
       forks_count: 0,
       watchers_count: 1,
-      size: 650,
-      created_at: "2024-10-05T09:45:00Z",
-      updated_at: "2025-05-12T11:20:00Z",
-      pushed_at: "2025-05-12T11:20:00Z",
-      topics: ["invoice", "automation", "python", "api-integration"],
+      size: 463,
+      created_at: "2024-11-02T21:38:20Z",
+      updated_at: "2025-05-05T00:56:45Z",
+      pushed_at: "2024-11-06T18:24:14Z",
+      topics: ["voting", "nextjs", "typescript", "democracy"],
       visibility: "public",
       fork: false,
       archived: false,
@@ -230,9 +242,9 @@ const GitHubRepos: React.FC<GitHubReposProps> = ({
       
       const data: GitHubRepository[] = await response.json()
       
-      // Filter out forks and archived repos, sort by stars
+      // Filter out forks, archived repos, and retired/superseded projects, sort by stars
       const filteredRepos = data
-        .filter(repo => !repo.fork && !repo.archived && !repo.disabled)
+        .filter(repo => !repo.fork && !repo.archived && !repo.disabled && !excludedRepos.has(repo.name))
         .sort((a, b) => b.stargazers_count - a.stargazers_count)
         .slice(0, maxRepos)
       
@@ -277,14 +289,6 @@ const GitHubRepos: React.FC<GitHubReposProps> = ({
   useEffect(() => {
     fetchRepositories()
   }, [username, maxRepos, sortBy])
-
-  // Test function to simulate rate limiting (for demonstration)
-  const simulateRateLimit = () => {
-    setRateLimited(true)
-    setRepos(fallbackRepos)
-    setLoading(false)
-    setError(null)
-  }
 
   // Get primary language for a repository
   const getPrimaryLanguage = (repoId: number): string | null => {
@@ -514,20 +518,6 @@ const GitHubRepos: React.FC<GitHubReposProps> = ({
             </Button>
           </div>
         </div>
-
-        {/* Test Rate Limit Button (for demonstration) */}
-        {!rateLimited && (
-          <div className="mb-4 text-center">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={simulateRateLimit}
-              className="text-xs text-muted-foreground hover:text-foreground"
-            >
-              Test Rate Limit Fallback
-            </Button>
-          </div>
-        )}
 
         {/* Rate Limit Notice */}
         {rateLimited && (

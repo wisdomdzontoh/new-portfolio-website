@@ -18,64 +18,36 @@ type Experience = {
 
 const experiences: Experience[] = [
   {
-    role: "Software Engineer (Freelance)",
-    company: "CBAMESTIMATOR GmbH",
-    location: "Germany (Remote)",
-    period: "2024 - 2025",
+    role: "Software Engineer — Contract / Freelance",
+    company: "Backend & Full-Stack Engineering",
+    location: "Remote",
+    period: "2024 - Present",
     description:
-      "Designed and implemented scalable backend solutions and data pipelines for a German tech company, focusing on process automation and data-driven applications.",
-    tags: ["Backend Development", "API Integration", "Automation"],
+      "Designing and shipping backend systems, APIs, and AI-integrated products for clients spanning health regulation, emergency-response infrastructure, and SaaS — see the Projects section for specific systems built.",
+    tags: ["Backend Development", "API Design", "AI Integration"],
     tasks: [
-      "Designed and deployed scalable backend solutions using Python, Django, and FastAPI.",
-      "Developed and maintained RESTful APIs for seamless integration with third-party services.",
-      "Created efficient data pipelines using PostgreSQL and MongoDB to improve business operations.",
-      "Automated lead generation, invoice management, and email campaigns, resulting in significant operational cost savings.",
-      "Integrated with ChatGPT API to enhance data analysis capabilities and improve lead scoring accuracy.",
+      "Designed and deployed scalable backend solutions using Python, Django, and FastAPI across multiple production systems.",
+      "Built and maintained RESTful APIs integrating third-party and AI services (OpenAI, government health data systems, CRM/automation tools).",
+      "Designed PostgreSQL and MongoDB data models to support reporting, analytics, and high-integrity record keeping.",
+      "Delivered dashboards, reporting tools, and data import/export modules used by 600+ end users across client systems.",
+      "Automated manual business workflows — data entry, lead processing, reporting — cutting manual effort by up to 60%.",
+      "Integrated LLM APIs (OpenAI) to enhance data analysis, scoring, and in-product automation.",
     ],
   },
   {
     role: "Health Information Officer",
-    company: "Greater Accra Regional Health Directorate, Ghana Health Service",
-    location: "Accra, Ghana",
+    company: "Public Health Sector",
+    location: "Greater Accra Region, Ghana",
     period: "2021 - 2024",
     description:
-      "Managed large-scale health data systems and developed digital tools for data collection and analysis, facilitating data-driven decision-making in public health.",
-    tags: ["Data Management", "Healthcare", "Analytics"],
+      "Managed regional health data systems and led the shift from paper-based to digital data collection across a large, multi-district health directorate.",
+    tags: ["Data Management", "Public Health", "Analytics"],
     tasks: [
-      "Managed large-scale health data systems using DHIMS2, ensuring data integrity and accessibility.",
-      "Developed digital tools for data collection using ODK, Kobo Collect, and Google Forms.",
-      "Conducted detailed data analysis using Excel, SPSS, and STATA to support evidence-based decision making.",
-      "Provided training on data analytics and visualization techniques to healthcare professionals.",
-      "Monitored and evaluated Key Performance Indicators (KPIs) at district and facility levels.",
-    ],
-  },
-  {
-    role: "Full-Stack Developer (Personal Projects)",
-    company: "Various Projects",
-    period: "2022 - Present",
-    description:
-      "Developed several full-stack applications focusing on AI integration, data visualization, and process automation.",
-    tags: ["Full-Stack", "AI Integration", "Data Visualization"],
-    tasks: [
-      "AI Chatbot SAAS: Developed a web application allowing users to create, train, and deploy custom chatbots with OpenAI integration.",
-      "Data Visualizer: Built a dashboard application enabling users to create visualizations from uploaded CSV/Excel files or database connections.",
-      "Expense Tracker: Created a responsive web application for tracking expenses with interactive charts and trend analysis.",
-      "Invoice Generator: Developed an automated system for invoice generation and management using the sevDesk API.",
-      "Campaign Automation: Built an end-to-end solution for lead campaign processes with CRM integration.",
-    ],
-  },
-  {
-    role: "Web Scraping Specialist",
-    company: "Freelance Projects",
-    period: "2023 - 2024",
-    description:
-      "Developed automated web scraping solutions for lead generation and data collection using Python and Selenium.",
-    tags: ["Web Scraping", "Automation", "Python"],
-    tasks: [
-      "Designed and implemented web scraping tools using Selenium and BeautifulSoup for automated data extraction.",
-      "Developed a BK_Tree algorithm for scoring leads based on defined metrics.",
-      "Integrated ChatGPT API to enhance lead scoring accuracy and data classification.",
-      "Created data processing pipelines to clean and structure scraped data for business use.",
+      "Managed large-scale regional health data systems (DHIMS2), ensuring data integrity and accessibility for decision-makers.",
+      "Rolled out digital data collection tools (ODK, Kobo Collect, Google Forms) to replace manual, paper-based field processes.",
+      "Conducted regular data audits and KPI analytics across facilities to inform strategic public health decisions.",
+      "Trained 500+ staff in data analysis and visualization techniques, improving data literacy across the directorate.",
+      "Monitored and evaluated key performance indicators at the district and facility level.",
     ],
   },
 ]
@@ -120,8 +92,8 @@ export default function Experience() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Professional Experience</h2>
           <div className="w-20 h-1 bg-primary rounded-full mb-6"></div>
           <p className="max-w-2xl text-muted-foreground text-lg">
-            A track record of impactful roles in software development, data engineering, and healthcare informatics that
-            have shaped my technical expertise.
+            A track record of impactful work in backend engineering, data systems, and public health informatics that
+            has shaped how I build software today.
           </p>
         </div>
 

@@ -23,7 +23,7 @@ const education: Education[] = [
     location: "Accra, Ghana",
     period: "2023 - 2026",
     description:
-      "Currently pursuing a comprehensive computer science degree focusing on software engineering, data structures, algorithms, and modern programming paradigms.",
+      "Comprehensive computer science degree covering software engineering, data structures, algorithms, and modern programming paradigms — including a final-year systems project (EBADS) built end-to-end.",
     achievements: [
       "Focus on software engineering and system design",
       "Advanced programming concepts and algorithms",
@@ -49,7 +49,7 @@ const education: Education[] = [
   },
   {
     degree: "Software Engineering",
-    institution: "Africa Leadership Union",
+    institution: "Africa Leadership University",
     location: "Ghana",
     period: "2022 - 2024",
     description:

@@ -6,18 +6,15 @@ import ProjectsEnhanced from "@/app/components/projects-enhanced"
 import GitHubRepos from "@/app/components/github-repos"
 import Education from "@/app/components/education"
 import Certifications from "@/app/components/certifications"
-import Testimonials from "@/app/components/testimonials"
 import Contact from "@/app/components/contact"
 import ScrollToTop from "@/app/components/scroll-to-top"
 import ScrollProgress from "@/app/components/scroll-progress"
-import PortfolioIntro from "@/app/components/portfolio-intro"
 
 export default function Home() {
   return (
     <>
       <ScrollProgress />
       <Hero />
-      <PortfolioIntro />
       <About />
       <Skills />
       <Experience />
@@ -25,7 +22,6 @@ export default function Home() {
       <GitHubRepos />
       <Education />
       <Certifications />
-      <Testimonials />
       <Contact />
       <ScrollToTop />
     </>

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Moon, Sun, Code, Download } from "lucide-react"
+import { Menu, X, Moon, Sun, Code } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { motion, AnimatePresence } from "framer-motion"
 import { useTheme } from "next-themes"
@@ -15,7 +15,6 @@ const navItems = [
   { name: "Projects", href: "#projects" },
   { name: "Education", href: "#education" },
   { name: "Certifications", href: "#certifications" },
-  { name: "Testimonials", href: "#testimonials" },
   { name: "Contact", href: "#contact" },
 ]
 
@@ -106,19 +105,6 @@ export default function Header() {
               {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
 
-            <Button variant="outline" size="sm" className="rounded-full hidden md:flex" asChild>
-            <a
-              href="https://drive.google.com/uc?export=download&id=1watZAeRuLBZeCcoAMfuefS_wVUV7I9vt"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1"
-            >
-              <Download className="h-4 w-4" />
-              <span>Resume</span>
-            </a>
-          </Button>
-
-
             <Button variant="default" size="sm" className="rounded-full hidden md:flex" asChild>
               <a href="#contact">Let's Talk</a>
             </Button>
@@ -180,25 +166,6 @@ export default function Header() {
                   </Link>
                 </motion.li>
               ))}
-              <motion.li
-                variants={{
-                  open: { opacity: 1, y: 0 },
-                  closed: { opacity: 0, y: 20 },
-                }}
-              >
-                <Button variant="outline" size="sm" className="rounded-full hidden md:flex" asChild>
-                <a
-                  href="https://drive.google.com/uc?export=download&id=1watZAeRuLBZeCcoAMfuefS_wVUV7I9vt"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1"
-                >
-                  <Download className="h-4 w-4" />
-                  <span>Resume</span>
-                </a>
-              </Button>
-
-              </motion.li>
               <motion.li
                 variants={{
                   open: { opacity: 1, y: 0 },

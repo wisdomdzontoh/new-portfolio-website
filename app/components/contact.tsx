@@ -101,8 +101,7 @@ export default function Contact() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Let's Build Something Great</h2>
           <div className="w-20 h-1 bg-primary rounded-full mb-6"></div>
           <p className="max-w-2xl text-muted-foreground text-lg">
-            Looking for a skilled developer to bring your project to life? I'm available for freelance work, full-time
-            positions, and interesting collaborations.
+            Have a project, role, or idea you'd like to talk through? Send me a message and I'll get back to you.
           </p>
         </div>
 
@@ -157,7 +156,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-medium">Location</h3>
-                    <p className="text-muted-foreground">GA-258-6269, Nkwanta St. Accra-Ghana</p>
+                    <p className="text-muted-foreground">Accra, Ghana</p>
                   </div>
                 </div>
 
@@ -168,7 +167,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-medium">Availability</h3>
-                    <p className="text-muted-foreground">Open to freelance and full-time opportunities</p>
+                    <p className="text-muted-foreground">Open to interesting projects and conversations</p>
                   </div>
                 </div>
 

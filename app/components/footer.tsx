@@ -1,7 +1,6 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { Github, Heart, Linkedin, Mail, Phone, ArrowUp, Twitter } from "lucide-react"
+import { Github, Linkedin, Mail, Phone, ArrowUp } from "lucide-react"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
@@ -39,8 +38,9 @@ export default function Footer() {
               <span className="text-primary">W</span>isdom Dzontoh
             </Link>
             <p className="text-muted-foreground mb-6 max-w-md">
-              Full-Stack Developer with 3+ years of experience specializing in backend development, API integrations,
-              and data analytics. Building robust, scalable solutions that bridge technology and healthcare.
+              Software Engineer with 4+ years of experience specializing in backend development, API design, and
+              data-driven automation. Building robust, scalable systems across health tech, emergency response, and
+              AI-powered products.
             </p>
             <div className="flex space-x-4">
               <a
@@ -60,15 +60,6 @@ export default function Footer() {
                 className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110"
               >
                 <Linkedin size={20} />
-              </a>
-              <a
-                href="https://twitter.com/wisdomdzontoh"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Twitter"
-                className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110"
-              >
-                <Twitter size={20} />
               </a>
               <a
                 href="mailto:wisdomdzontoh@gmail.com"
@@ -128,15 +119,6 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#testimonials"
-                  className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary/50"></span>
-                  Testimonials
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="#contact"
                   className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
                 >
@@ -170,9 +152,7 @@ export default function Footer() {
 
         <div className="border-t border-border mt-10 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">© {currentYear} Wisdom Dzontoh. All rights reserved.</p>
-          <p className="text-sm text-muted-foreground flex items-center mt-4 md:mt-0">
-            Built with <Heart className="mx-1 text-primary" size={14} /> using Next.js and Tailwind CSS
-          </p>
+          
         </div>
       </div>
 

@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ArrowDown, Github, Linkedin, Mail, Download, ExternalLink } from "lucide-react"
+import { ArrowDown, ArrowRight, Github, Linkedin, Mail } from "lucide-react"
 import { motion } from "framer-motion"
 import Typed from "typed.js"
 
@@ -15,7 +15,7 @@ export default function Hero() {
     setIsLoaded(true)
 
     const typed = new Typed(typedRef.current, {
-      strings: ["Data Analytics Engineer", "Software Engineer", "System Manager", "Backend Specialist", "API Engineer", "Data Automation Expert"],
+      strings: ["Software Engineer", "Backend Engineer", "API & Systems Architect", "Data Automation Engineer", "Full-Stack Developer"],
       typeSpeed: 50,
       backSpeed: 30,
       backDelay: 1500,
@@ -68,10 +68,6 @@ export default function Hero() {
         >
           <motion.div className="flex-1" variants={itemVariants}>
             <div className="space-y-6">
-              <div className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-2">
-                Available for new opportunities
-              </div>
-
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
                 <span className="text-foreground">Hi, I'm </span>
                 <span className="text-primary relative">
@@ -86,7 +82,7 @@ export default function Hero() {
               </h2>
 
               <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-                Strategic Software Engineer skilled in application development, testing and optimization. I excel at coordinating ground-up planning, programming, and implementation for core modules. My tech stack includes <span className="text-primary font-medium">Python</span>, <span className="text-primary font-medium">Django/FastAPI</span>, <span className="text-primary font-medium">LLM Frameworks</span>, and <span className="text-primary font-medium">Data Analytics</span> to create efficient, maintainable solutions.
+                I design and build scalable backend systems, APIs, and data-driven applications for organizations that need software they can rely on. My toolkit centers on <span className="text-primary font-medium">Python</span>, <span className="text-primary font-medium">Django/FastAPI</span>, <span className="text-primary font-medium">Next.js</span>, and <span className="text-primary font-medium">LLM-powered automation</span> — from national-scale reporting platforms to AI-driven SaaS products.
               </p>
 
               <div className="flex flex-wrap gap-4 pt-4">
@@ -97,17 +93,10 @@ export default function Hero() {
                   </a>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="rounded-full">
-                  <a
-                    href="https://drive.google.com/uc?export=download&id=1watZAeRuLBZeCcoAMfuefS_wVUV7I9vt"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2"
-                  >
-                    <span>Download CV</span>
-                    <Download size={18} />
+                  <a href="#contact" className="flex items-center gap-2">
+                    <span>Get In Touch</span>
                   </a>
                 </Button>
-
               </div>
 
               <div className="space-y-4 pt-4">
@@ -140,9 +129,9 @@ export default function Hero() {
                 </div>
                 
                 <div className="text-sm text-muted-foreground space-y-1">
-                  <p>📍 GA-258-6269, Nkwanta St. Accra-Ghana</p>
-                  <p>📞 (+233) 0558749735</p>
-                  <p>✉️ wisdomdzontoh@gmail.com</p>
+                  <p>Accra, Ghana</p>
+                  <p>(+233) 0558749735</p>
+                  <p>wisdomdzontoh@gmail.com</p>
                 </div>
               </div>
             </div>
@@ -152,23 +141,18 @@ export default function Hero() {
             <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/30 to-secondary/30 opacity-30 blur-xl animate-pulse"></div>
               <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-primary/10 shadow-2xl">
-                <Image src="/assets/currentpic.jpg" alt="Wisdom Dzontoh" fill className="object-cover" priority />
+                <Image src="/assets/profile-pic.jpeg" alt="Wisdom Dzontoh" fill className="object-cover" priority />
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-card rounded-lg shadow-lg flex items-center justify-center p-2 border border-border/50">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">3+</div>
+                  <div className="text-3xl font-bold text-primary">4+</div>
                   <div className="text-xs text-muted-foreground">Years Experience</div>
                 </div>
               </div>
               <div className="absolute -top-4 -left-4 w-auto h-auto bg-card rounded-lg shadow-lg flex items-center justify-center p-3 border border-border/50">
-                <a
-                  href="https://github.com/wisdomdzontoh/AI-chatbot-SAAS"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm"
-                >
-                  <span>Latest Project</span>
-                  <ExternalLink size={14} className="text-primary" />
+                <a href="#projects" className="flex items-center gap-2 text-sm">
+                  <span>Featured Work</span>
+                  <ArrowRight size={14} className="text-primary" />
                 </a>
               </div>
             </div>
